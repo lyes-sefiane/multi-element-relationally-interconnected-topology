@@ -1,6 +1,9 @@
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/phoenix.png" width="30%">
+</p>
 <h1 align="center">M.E.R.I.T<br/>
   Multi-Element Relationally Interconnected Topology</br>
-  <p align="center">The Spanning Tree Protocol Concepts Modelization</p>
+  <p align="center">Based On The Spanning Tree Protocol (STP) Concepts</p>
 </h1>
 
 # MIT License
