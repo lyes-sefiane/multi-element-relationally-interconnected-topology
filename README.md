@@ -3,7 +3,6 @@
 </p>
 <h1 align="center">M.E.R.I.T<br/>
   Multi-Element Relationally Interconnected Topology</br>
-  <p align="center">Based On The Spanning Tree Protocol (STP) Concepts</p>
 </h1>
 
 # MIT License
