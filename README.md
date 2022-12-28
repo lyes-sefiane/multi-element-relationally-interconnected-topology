@@ -1,3 +1,10 @@
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/phoenix.png" width="30%">
+</p>
+<h1 align="center">M.E.R.I.T<br/>
+  Multi-Element Relationally Interconnected Topology</br>
+</h1>
+
 # MIT License
 
 [Copyright (c) 2022 Lyes Sefiane.](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
@@ -8,9 +15,8 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/lyes-s/multi-element-relationally-interconnected-topology?style=social)
 [![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
 
-# M.E.R.I.T : Multi-Element Relationally Interconnected Topology
 
-### Wiki
+# Wiki
 
 * Todo
 
