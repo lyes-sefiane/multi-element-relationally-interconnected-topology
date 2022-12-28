@@ -18,6 +18,7 @@
 		<java.version>11</java.version>
 	</properties>
 	<modules>
+		<module>api-gateway</module>
 	</modules>
 
 </project>
