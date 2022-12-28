@@ -1,0 +1,8 @@
+# Active Profile
+active:
+  profile: dev
+
+# Application Properties
+spring:
+  application:
+    name: "api-gateway"
