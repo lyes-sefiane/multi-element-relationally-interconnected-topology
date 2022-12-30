@@ -1,0 +1,5 @@
+spring:
+  port: 8080
+  cloud:
+    consul:
+      enabled: false
