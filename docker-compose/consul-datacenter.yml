@@ -20,7 +20,7 @@ services:
     image: hashicorp/consul:latest
     container_name: consul-client
     restart: unless-stopped
-    command: ${CONSUL_AGENT_COMMAND}
+    command: ${CONSUL_CLIENT_COMMAND}
     volumes:
      - ../consul/client.json:/consul/config/client.json:ro
     depends_on:
