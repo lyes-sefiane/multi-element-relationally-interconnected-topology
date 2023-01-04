@@ -19,7 +19,7 @@
 	</properties>
 	<modules>
 		<module>api-gateway</module>
-		<module>graph-network-command</module>
+		<module>network-elements</module>
 	</modules>
 
 </project>
