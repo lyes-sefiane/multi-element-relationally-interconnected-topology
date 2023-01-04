@@ -10,11 +10,11 @@ spring:
       # Discovery Locator
       discovery:
         locator:
-          enabled: false
+          enabled: true
       # Routes
       routes:
-        - id: graph-network-command
-          uri: lb://graph-network-command
+        - id: network-elements
+          uri: lb://network-elements
           predicates:
-            - Path=/graph-network
-            - Method=POST,PUT
+            - Path=/api/**
+            - Method=GET,POST,PUT,DELETE
