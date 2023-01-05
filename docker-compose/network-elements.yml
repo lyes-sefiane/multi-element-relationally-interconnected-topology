@@ -60,12 +60,25 @@ services:
       MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: ${MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE}
       SPRING_CLOUD_CONSUL_DISCOVERY_HEALTHCHECKPATH: ${SPRING_CLOUD_CONSUL_DISCOVERY_HEALTHCHECKPATH}
       SPRING_APPLICATION_NAME: ${SPRING_APPLICATION_NAME}
+      SPRING_CACHE_TYPE: ${SPRING_CACHE_TYPE}
+      SPRING_REDIS_HOST: ${SPRING_REDIS_HOST}
+      SPRING_REDIS_PORT: ${SPRING_REDIS_PORT}
     depends_on:
       - network-elements-db
       - consul-server
+      - redis
     networks:
       - network-elements
       - consul
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: unless-stopped
+    expose:
+      - ${SPRING_REDIS_PORT}
+    networks:
+      - network-elements
 
 volumes:
   pgdata:
