@@ -6,6 +6,7 @@ import lombok.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 
 /**
  * @author : Lyes Sefiane
@@ -19,7 +20,7 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class NeighborDto {
+public class NeighborDto implements Serializable {
 
     @Pattern(regexp = Defines.IP_REGEX, message = "Invalid Format")
     @EqualsAndHashCode.Include

@@ -7,7 +7,6 @@ import com.cloud.nativ.networkelements.domain.entities.NetworkDevice;
 import com.cloud.nativ.networkelements.domain.enums.ElementType;
 import com.cloud.nativ.networkelements.dto.entities.NeighborDto;
 import com.cloud.nativ.networkelements.dto.entities.NetworkDeviceDto;
-import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
@@ -68,10 +67,6 @@ public class ModelMapper implements IModelMapper<NetworkDeviceDto, NetworkDevice
                 .collect(Collectors.toSet());
 
         networkDeviceDto.setNeighbors(neighbors);
-
-        Link link = linkTo(methodOn(NetworkDeviceController.class).findById(networkDeviceDto.getAddress())).withSelfRel();
-
-        networkDeviceDto.add(link);
 
         return networkDeviceDto;
     }
