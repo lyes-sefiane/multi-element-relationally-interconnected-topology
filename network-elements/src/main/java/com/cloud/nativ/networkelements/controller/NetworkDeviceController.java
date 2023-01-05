@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.ExposesResourceFor;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 /**
  * @author : Lyes Sefiane
@@ -30,6 +36,7 @@ import java.util.List;
 @Tag(name = "Network Device Controller")
 @PropertySource("${springdoc.api-docs.messages}")
 @CrossOrigin(origins = "http://localhost")
+@ExposesResourceFor(NetworkDeviceDto.class)
 public class NetworkDeviceController {
 
     private final IService<NetworkDeviceDto> networkDeviceService;
@@ -44,8 +51,8 @@ public class NetworkDeviceController {
     @ApiResponse(responseCode = "200",
             description = "OK",
             content = @Content(schema = @Schema(implementation = NetworkDeviceDto.class)))
-    public List<NetworkDeviceDto> findAllNetworkDevice() {
-        return networkDeviceService.findAll();
+    public List<EntityModel<NetworkDeviceDto>> findAllNetworkDevice() {
+        return toEntityModel(networkDeviceService.findAll());
     }
 
     @GetMapping("/{id}")
@@ -54,8 +61,8 @@ public class NetworkDeviceController {
     @ApiResponse(responseCode = "404", description = "NOT_FOUND", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
     @ApiResponse(responseCode = "400", description = "BAD_REQUEST", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
     @ApiResponse(responseCode = "415", description = "UNSUPPORTED_MEDIA_TYPE", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
-    public NetworkDeviceDto findById(@PathVariable @Pattern(regexp = Defines.IP_REGEX, message = "Invalid Format") String id) {
-        return networkDeviceService.findById(id);
+    public EntityModel<NetworkDeviceDto> findById(@PathVariable @Pattern(regexp = Defines.IP_REGEX, message = "Invalid Format") String id) {
+        return toEntityModel(networkDeviceService.findById(id));
     }
 
     @PostMapping
@@ -65,8 +72,8 @@ public class NetworkDeviceController {
     @ApiResponse(responseCode = "422", description = "UNPROCESSABLE_ENTITY", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
     @ApiResponse(responseCode = "400", description = "BAD_REQUEST", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
     @ApiResponse(responseCode = "415", description = "UNSUPPORTED_MEDIA_TYPE", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
-    public NetworkDeviceDto save(@RequestBody @Valid NetworkDeviceDto networkDeviceDto) {
-        return networkDeviceService.save(networkDeviceDto);
+    public EntityModel<NetworkDeviceDto> save(@RequestBody @Valid NetworkDeviceDto networkDeviceDto) {
+        return toEntityModel(networkDeviceService.save(networkDeviceDto));
     }
 
     @PutMapping("/{id}")
@@ -76,9 +83,9 @@ public class NetworkDeviceController {
     @ApiResponse(responseCode = "422", description = "UNPROCESSABLE_ENTITY", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
     @ApiResponse(responseCode = "400", description = "BAD_REQUEST", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
     @ApiResponse(responseCode = "415", description = "UNSUPPORTED_MEDIA_TYPE", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
-    public NetworkDeviceDto update(@RequestBody @Valid NetworkDeviceDto networkDeviceDto,
+    public EntityModel<NetworkDeviceDto> update(@RequestBody @Valid NetworkDeviceDto networkDeviceDto,
                                    @PathVariable @Pattern(regexp = Defines.IP_REGEX, message = "Invalid Format") String id) {
-        return networkDeviceService.update(networkDeviceDto, id);
+        return toEntityModel(networkDeviceService.update(networkDeviceDto, id));
     }
 
     @DeleteMapping("/{id}")
@@ -88,5 +95,17 @@ public class NetworkDeviceController {
     @ApiResponse(responseCode = "415", description = "UNSUPPORTED_MEDIA_TYPE", content = @Content(schema = @Schema(implementation = ExceptionResponse.class)))
     public void delete(@PathVariable @Pattern(regexp = Defines.IP_REGEX, message = "Invalid Format") String id) {
         networkDeviceService.delete(id);
+    }
+
+    // May be a better place/design for the following methods.
+    // I love keep the controller as clean as possible with the exposed endpoints only !!
+    // May be less trivial with the Redis Cache and the Serialization of the EnityModel è_é!!
+    private List<EntityModel<NetworkDeviceDto>> toEntityModel(List<NetworkDeviceDto> networkDeviceDtoList) {
+        return networkDeviceDtoList.stream().map(networkDeviceDto -> toEntityModel(networkDeviceDto)).collect(Collectors.toList());
+    }
+
+    private EntityModel<NetworkDeviceDto> toEntityModel(NetworkDeviceDto networkDeviceDto) {
+        return EntityModel.of(networkDeviceDto)
+                .add(linkTo(methodOn(NetworkDeviceController.class).findById(networkDeviceDto.getAddress())).withSelfRel());
     }
 }

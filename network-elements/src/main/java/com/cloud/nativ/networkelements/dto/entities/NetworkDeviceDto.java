@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class NetworkDeviceDto extends RepresentationModel<NetworkDeviceDto> {
+public class NetworkDeviceDto implements Serializable {
 
     @Pattern(regexp = Defines.IP_REGEX, message = "Invalid Format")
     @EqualsAndHashCode.Include
