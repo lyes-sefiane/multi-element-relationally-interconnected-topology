@@ -3,6 +3,9 @@ package com.cloud.nativ.networkelements.domain.entities;
 import com.cloud.nativ.networkelements.domain.enums.ElementType;
 import com.cloud.nativ.networkelements.domain.enums.converter.ElementTypeConverter;
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.OptimisticLockType;
+import org.hibernate.annotations.OptimisticLocking;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,6 +26,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@OptimisticLocking(type = OptimisticLockType.ALL)
+@DynamicUpdate
 public class NetworkDevice implements Serializable {
 
     @Id
