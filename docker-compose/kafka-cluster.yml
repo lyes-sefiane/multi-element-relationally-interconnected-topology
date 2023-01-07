@@ -1,0 +1,89 @@
+version: '3.9'
+services:
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    container_name: zookeeper
+    restart: unless-stopped
+    expose:
+      - ${ZOOKEEPER_PORT}
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=${ALLOW_ANONYMOUS_LOGIN}
+    networks:
+      - kafka
+
+  kafka1:
+    image: bitnami/kafka:2.7.0
+    container_name: kafka1
+    restart: unless-stopped
+    expose:
+      - ${KAFKA_1_PORT_1}
+      - ${KAFKA_1_PORT_2}
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:${KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP_INTERNAL},EXTERNAL:${KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP_EXTERNAL}
+      - KAFKA_CFG_LISTENERS=INTERNAL:${KAFKA_1_CFG_LISTENERS_INTERNAL},EXTERNAL:${KAFKA_1_CFG_LISTENERS_EXTERNAL}
+      - KAFKA_CFG_ADVERTISED_LISTENERS=INTERNAL:${KAFKA_1_CFG_ADVERTISED_LISTENERS_INTERNAL},EXTERNAL:${KAFKA_1_CFG_ADVERTISED_LISTENERS_EXTERNAL}
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=${KAFKA_CFG_ZOOKEEPER_CONNECT}
+      - KAFKA_INTER_BROKER_LISTENER_NAME=${KAFKA_INTER_BROKER_LISTENER_NAME}
+      - ALLOW_PLAINTEXT_LISTENER=${ALLOW_PLAINTEXT_LISTENER}
+    networks:
+      - kafka
+      
+  kafka2:
+    image: bitnami/kafka:2.7.0
+    container_name: kafka2
+    restart: unless-stopped
+    expose:
+      - ${KAFKA_2_PORT_1}
+      - ${KAFKA_2_PORT_2}
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:${KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP_INTERNAL},EXTERNAL:${KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP_EXTERNAL}
+      - KAFKA_CFG_LISTENERS=INTERNAL:${KAFKA_2_CFG_LISTENERS_INTERNAL},EXTERNAL:${KAFKA_2_CFG_LISTENERS_EXTERNAL}
+      - KAFKA_CFG_ADVERTISED_LISTENERS=INTERNAL:${KAFKA_2_CFG_ADVERTISED_LISTENERS_INTERNAL},EXTERNAL:${KAFKA_2_CFG_ADVERTISED_LISTENERS_EXTERNAL}
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=${KAFKA_CFG_ZOOKEEPER_CONNECT}
+      - KAFKA_INTER_BROKER_LISTENER_NAME=${KAFKA_INTER_BROKER_LISTENER_NAME}
+      - ALLOW_PLAINTEXT_LISTENER=${ALLOW_PLAINTEXT_LISTENER}
+    networks:
+      - kafka
+
+  kafka3:
+    image: bitnami/kafka:2.7.0
+    container_name: kafka3
+    restart: unless-stopped
+    expose:
+      - ${KAFKA_3_PORT_1}
+      - ${KAFKA_3_PORT_2}
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:${KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP_INTERNAL},EXTERNAL:${KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP_EXTERNAL}
+      - KAFKA_CFG_LISTENERS=INTERNAL:${KAFKA_3_CFG_LISTENERS_INTERNAL},EXTERNAL:${KAFKA_3_CFG_LISTENERS_EXTERNAL}
+      - KAFKA_CFG_ADVERTISED_LISTENERS=INTERNAL:${KAFKA_3_CFG_ADVERTISED_LISTENERS_INTERNAL},EXTERNAL:${KAFKA_3_CFG_ADVERTISED_LISTENERS_EXTERNAL}
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=${KAFKA_CFG_ZOOKEEPER_CONNECT}
+      - KAFKA_INTER_BROKER_LISTENER_NAME=${KAFKA_INTER_BROKER_LISTENER_NAME}
+      - ALLOW_PLAINTEXT_LISTENER=${ALLOW_PLAINTEXT_LISTENER}
+    networks:
+      - kafka
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop:latest
+    container_name: kafdrop
+    restart: unless-stopped
+    ports:
+      - ${KAFDROP_PORT}:${KAFDROP_PORT}
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+    environment:
+      - KAFKA_BROKERCONNECT=${KAFKA_BROKERCONNECT}
+      - JVM_OPTS=${JVM_OPTS}
+      - SERVER_SERVLET_CONTEXTPATH=${SERVER_SERVLET_CONTEXTPATH}
+    networks:
+      - kafka
+
+networks:
+  kafka:
