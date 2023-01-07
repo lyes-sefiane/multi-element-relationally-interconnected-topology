@@ -12,7 +12,7 @@
 	<artifactId>multi-element-relationally-interconnected-topology</artifactId>
 	<version>0.0.1</version>
 	<name>multi-element-relationally-interconnected-topology</name>
-	<description>Cloud Native Network Graph Application</description>
+	<description>M.E.R.I.T : Multi-Element Relationally Interconnected Topology Application</description>
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>11</java.version>
@@ -21,6 +21,7 @@
 		<module>api-gateway</module>
 		<module>network-elements</module>
 		<module>network-graph</module>
+		<module>network-common</module>
 	</modules>
 
 </project>
