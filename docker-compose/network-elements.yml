@@ -63,13 +63,20 @@ services:
       SPRING_CACHE_TYPE: ${SPRING_CACHE_TYPE}
       SPRING_REDIS_HOST: ${SPRING_REDIS_HOST}
       SPRING_REDIS_PORT: ${SPRING_REDIS_PORT}
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: ${SPRING_KAFKA_BOOTSTRAP_SERVERS}
+      SPRING_KAFKA_PRODUCER_PRODUCER_KEY_SERIALIZER: ${SPRING_KAFKA_PRODUCER_PRODUCER_KEY_SERIALIZER}
+      SPRING_KAFKA_PRODUCER_PRODUCER_VALUE_SERIALIZER: ${SPRING_KAFKA_PRODUCER_PRODUCER_VALUE_SERIALIZER}
     depends_on:
       - network-elements-db
       - consul-server
       - redis
+      - kafka1
+      - kafka2
+      - kafka3
     networks:
       - network-elements
       - consul
+      - kafka
 
   redis:
     image: redis:latest
@@ -86,3 +93,4 @@ volumes:
 networks:
   network-elements:
   consul:
+  kafka:
