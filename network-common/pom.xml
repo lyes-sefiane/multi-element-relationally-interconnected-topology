@@ -15,6 +15,8 @@
 	<description>Network Common</description>
 	<properties>
 		<java.version>11</java.version>
+		<avro.version>1.11.0</avro.version>
+		<avro.maven-plugin.version>1.11.0</avro.maven-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,6 +29,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.avro</groupId>
+			<artifactId>avro</artifactId>
+			<version>${avro.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -35,6 +42,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 		</plugins>
 	</build>
 
