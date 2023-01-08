@@ -7,6 +7,9 @@ import com.cloud.nativ.networkelements.domain.entities.NetworkDevice;
 import com.cloud.nativ.networkelements.dto.entities.NetworkDeviceDto;
 import com.cloud.nativ.networkelements.exception.NetworkDeviceAlreadyExistsException;
 import com.cloud.nativ.networkelements.exception.NetworkDeviceNotFoundException;
+import com.cloud.nativ.networkelements.kafka.KafkaProducer;
+import com.cloud.nativ.networkelements.messages.Message;
+import com.cloud.nativ.networkelements.messages.entities.NetworkElement;
 import com.cloud.nativ.networkelements.repository.INeighborRepository;
 import com.cloud.nativ.networkelements.repository.INetworkDeviceRepository;
 import org.springframework.beans.BeanUtils;
@@ -18,6 +21,8 @@ import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -36,6 +41,9 @@ public class NetworkDeviceService implements IService<NetworkDeviceDto> {
     private final INeighborRepository neighborRepository;
 
     private final IModelMapper<NetworkDeviceDto, NetworkDevice> modelMapper;
+
+    @Autowired
+    private KafkaProducer kafkaProducer;
 
     @Autowired
     public NetworkDeviceService(INetworkDeviceRepository networkDeviceRepository, INeighborRepository neighborRepository, IModelMapper<NetworkDeviceDto, NetworkDevice> modelMapper) {
@@ -80,9 +88,24 @@ public class NetworkDeviceService implements IService<NetworkDeviceDto> {
             evict = @CacheEvict(cacheNames = "networkDevices", allEntries = true))
     @Override
     public NetworkDeviceDto save(NetworkDeviceDto networkDeviceDto) {
+
+        //// @TODO : To Be Removed
+        kafkaProducer.sendMessage(Message.newBuilder()//
+                .setDate(LocalDate.now())//
+                .setNetworkElement(NetworkElement.newBuilder()//
+                        .setIpAddress("10.133.192.168")//
+                        .setElementType("Switch")//
+                        .setConnections(Arrays.asList(com.cloud.nativ.networkelements.messages.entities.Connection.newBuilder()//
+                                .setIpAddress("10.133.192.169")//
+                                .setCost(3)//
+                                .build()))//
+                        .build())//
+                .build());
         networkDeviceRepository.findById(networkDeviceDto.getAddress()).ifPresent(x -> {
             throw new NetworkDeviceAlreadyExistsException(x);
         });
+        ////
+
         NetworkDevice networkDevice = modelMapper.toEntity(networkDeviceDto);
         Set<Neighbor> neighbors = getNeighbors(networkDevice);
         Neighbor neighborFromNetworkDeviceSelf = new Neighbor(networkDevice.getIpAddress());
