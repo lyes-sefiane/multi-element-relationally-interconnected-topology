@@ -64,8 +64,9 @@ services:
       SPRING_REDIS_HOST: ${SPRING_REDIS_HOST}
       SPRING_REDIS_PORT: ${SPRING_REDIS_PORT}
       SPRING_KAFKA_BOOTSTRAP_SERVERS: ${SPRING_KAFKA_BOOTSTRAP_SERVERS}
-      SPRING_KAFKA_PRODUCER_PRODUCER_KEY_SERIALIZER: ${SPRING_KAFKA_PRODUCER_PRODUCER_KEY_SERIALIZER}
-      SPRING_KAFKA_PRODUCER_PRODUCER_VALUE_SERIALIZER: ${SPRING_KAFKA_PRODUCER_PRODUCER_VALUE_SERIALIZER}
+      SPRING_KAFKA_PRODUCER_KEY_SERIALIZER: ${SPRING_KAFKA_PRODUCER_KEY_SERIALIZER}
+      SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER: ${SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER}
+      SPRING_KAFKA_PROPERTIES_SCHEMA_REGISTRY_URL: ${SPRING_KAFKA_PROPERTIES_SCHEMA_REGISTRY_URL}
     depends_on:
       - network-elements-db
       - consul-server
@@ -73,10 +74,12 @@ services:
       - kafka1
       - kafka2
       - kafka3
+      - schema-registry
     networks:
       - network-elements
       - consul
       - kafka
+      - schema-registry
 
   redis:
     image: redis:latest
@@ -94,3 +97,4 @@ networks:
   network-elements:
   consul:
   kafka:
+  schema-registry:

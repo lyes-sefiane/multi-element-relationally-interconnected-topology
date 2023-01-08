@@ -1,0 +1,24 @@
+version: '3.9'
+services:
+  schema-registry:
+    image: confluentinc/cp-schema-registry:latest
+    hostname: schema-registry
+    container_name: schema-registry
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+      - zookeeper
+    expose:
+      - ${SCHEMA_REGISTRY_PORT}
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: ${SCHEMA_REGISTRY_HOST_NAME}
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: ${SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS}
+    networks:
+      - schema-registry
+      - kafka
+
+
+networks:
+  kafka:
+  schema-registry:
