@@ -1,6 +1,7 @@
 package com.cloud.nativ.networkelements.kafka;
 
-import com.cloud.nativ.networkelements.messages.Message;
+
+import com.cloud.nativ.networkcommon.messages.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
