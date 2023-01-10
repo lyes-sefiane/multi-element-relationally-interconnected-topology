@@ -9,6 +9,14 @@
 
 [Copyright (c) 2022 Lyes Sefiane.](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
 
+# The M.E.R.I.T Infrastructure
+
+(in progress ....🤩 and if you're lost, just follow the sound .... ah-wee, ah-wee, oh ... We go, we go, we go)
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT.PNG" width="100%">
+</p>
+
 # GitHub Badges
 
 ![GitHub top language](https://img.shields.io/github/languages/top/lyes-s/multi-element-relationally-interconnected-topology)
