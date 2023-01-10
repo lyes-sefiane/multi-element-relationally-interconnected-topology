@@ -1,5 +1,7 @@
 package com.cloud.nativ.networkelements.service;
 
+import com.cloud.nativ.networkcommon.messages.Message;
+import com.cloud.nativ.networkcommon.messages.entities.NetworkElement;
 import com.cloud.nativ.networkelements.converter.IModelMapper;
 import com.cloud.nativ.networkelements.domain.entities.Connection;
 import com.cloud.nativ.networkelements.domain.entities.Neighbor;
@@ -8,8 +10,6 @@ import com.cloud.nativ.networkelements.dto.entities.NetworkDeviceDto;
 import com.cloud.nativ.networkelements.exception.NetworkDeviceAlreadyExistsException;
 import com.cloud.nativ.networkelements.exception.NetworkDeviceNotFoundException;
 import com.cloud.nativ.networkelements.kafka.KafkaProducer;
-import com.cloud.nativ.networkelements.messages.Message;
-import com.cloud.nativ.networkelements.messages.entities.NetworkElement;
 import com.cloud.nativ.networkelements.repository.INeighborRepository;
 import com.cloud.nativ.networkelements.repository.INetworkDeviceRepository;
 import org.springframework.beans.BeanUtils;
@@ -95,7 +95,7 @@ public class NetworkDeviceService implements IService<NetworkDeviceDto> {
                 .setNetworkElement(NetworkElement.newBuilder()//
                         .setIpAddress("10.133.192.168")//
                         .setElementType("Switch")//
-                        .setConnections(Arrays.asList(com.cloud.nativ.networkelements.messages.entities.Connection.newBuilder()//
+                        .setConnections(Arrays.asList(com.cloud.nativ.networkcommon.messages.entities.Connection.newBuilder()//
                                 .setIpAddress("10.133.192.169")//
                                 .setCost(3)//
                                 .build()))//
