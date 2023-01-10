@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.cloud.nativ.networkelements.messages.entities;
+package com.cloud.nativ.networkcommon.messages.entities;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Connection extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -7685266850770063006L;
+  private static final long serialVersionUID = 8018475822782478198L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Connection\",\"namespace\":\"com.cloud.nativ.networkelements.messages.entities\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"cost\",\"type\":\"int\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Connection\",\"namespace\":\"com.cloud.nativ.networkcommon.messages.entities\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"cost\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -152,8 +152,8 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
    * Creates a new Connection RecordBuilder.
    * @return A new Connection RecordBuilder
    */
-  public static com.cloud.nativ.networkelements.messages.entities.Connection.Builder newBuilder() {
-    return new com.cloud.nativ.networkelements.messages.entities.Connection.Builder();
+  public static com.cloud.nativ.networkcommon.messages.entities.Connection.Builder newBuilder() {
+    return new com.cloud.nativ.networkcommon.messages.entities.Connection.Builder();
   }
 
   /**
@@ -161,11 +161,11 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
    * @param other The existing builder to copy.
    * @return A new Connection RecordBuilder
    */
-  public static com.cloud.nativ.networkelements.messages.entities.Connection.Builder newBuilder(com.cloud.nativ.networkelements.messages.entities.Connection.Builder other) {
+  public static com.cloud.nativ.networkcommon.messages.entities.Connection.Builder newBuilder(com.cloud.nativ.networkcommon.messages.entities.Connection.Builder other) {
     if (other == null) {
-      return new com.cloud.nativ.networkelements.messages.entities.Connection.Builder();
+      return new com.cloud.nativ.networkcommon.messages.entities.Connection.Builder();
     } else {
-      return new com.cloud.nativ.networkelements.messages.entities.Connection.Builder(other);
+      return new com.cloud.nativ.networkcommon.messages.entities.Connection.Builder(other);
     }
   }
 
@@ -174,11 +174,11 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
    * @param other The existing instance to copy.
    * @return A new Connection RecordBuilder
    */
-  public static com.cloud.nativ.networkelements.messages.entities.Connection.Builder newBuilder(com.cloud.nativ.networkelements.messages.entities.Connection other) {
+  public static com.cloud.nativ.networkcommon.messages.entities.Connection.Builder newBuilder(com.cloud.nativ.networkcommon.messages.entities.Connection other) {
     if (other == null) {
-      return new com.cloud.nativ.networkelements.messages.entities.Connection.Builder();
+      return new com.cloud.nativ.networkcommon.messages.entities.Connection.Builder();
     } else {
-      return new com.cloud.nativ.networkelements.messages.entities.Connection.Builder(other);
+      return new com.cloud.nativ.networkcommon.messages.entities.Connection.Builder(other);
     }
   }
 
@@ -201,7 +201,7 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.cloud.nativ.networkelements.messages.entities.Connection.Builder other) {
+    private Builder(com.cloud.nativ.networkcommon.messages.entities.Connection.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.ipAddress)) {
         this.ipAddress = data().deepCopy(fields()[0].schema(), other.ipAddress);
@@ -217,7 +217,7 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing Connection instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.cloud.nativ.networkelements.messages.entities.Connection other) {
+    private Builder(com.cloud.nativ.networkcommon.messages.entities.Connection other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.ipAddress)) {
         this.ipAddress = data().deepCopy(fields()[0].schema(), other.ipAddress);
@@ -243,7 +243,7 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'ipAddress'.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.Connection.Builder setIpAddress(java.lang.CharSequence value) {
+    public com.cloud.nativ.networkcommon.messages.entities.Connection.Builder setIpAddress(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.ipAddress = value;
       fieldSetFlags()[0] = true;
@@ -263,7 +263,7 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'ipAddress' field.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.Connection.Builder clearIpAddress() {
+    public com.cloud.nativ.networkcommon.messages.entities.Connection.Builder clearIpAddress() {
       ipAddress = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -283,7 +283,7 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'cost'.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.Connection.Builder setCost(int value) {
+    public com.cloud.nativ.networkcommon.messages.entities.Connection.Builder setCost(int value) {
       validate(fields()[1], value);
       this.cost = value;
       fieldSetFlags()[1] = true;
@@ -303,7 +303,7 @@ public class Connection extends org.apache.avro.specific.SpecificRecordBase impl
       * Clears the value of the 'cost' field.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.Connection.Builder clearCost() {
+    public com.cloud.nativ.networkcommon.messages.entities.Connection.Builder clearCost() {
       fieldSetFlags()[1] = false;
       return this;
     }

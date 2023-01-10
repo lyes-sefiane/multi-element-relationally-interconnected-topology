@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.cloud.nativ.networkelements.messages.entities;
+package com.cloud.nativ.networkcommon.messages.entities;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4274559945463633282L;
+  private static final long serialVersionUID = -4078257393217921038L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"NetworkElement\",\"namespace\":\"com.cloud.nativ.networkelements.messages.entities\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"elementType\",\"type\":\"string\"},{\"name\":\"connections\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Connection\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"cost\",\"type\":\"int\"}]}}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"NetworkElement\",\"namespace\":\"com.cloud.nativ.networkcommon.messages.entities\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"elementType\",\"type\":\"string\"},{\"name\":\"connections\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Connection\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"cost\",\"type\":\"int\"}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -75,7 +75,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
 
   private java.lang.CharSequence ipAddress;
   private java.lang.CharSequence elementType;
-  private java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> connections;
+  private java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> connections;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -90,7 +90,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
    * @param elementType The new value for elementType
    * @param connections The new value for connections
    */
-  public NetworkElement(java.lang.CharSequence ipAddress, java.lang.CharSequence elementType, java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> connections) {
+  public NetworkElement(java.lang.CharSequence ipAddress, java.lang.CharSequence elementType, java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> connections) {
     this.ipAddress = ipAddress;
     this.elementType = elementType;
     this.connections = connections;
@@ -114,7 +114,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
     switch (field$) {
     case 0: ipAddress = (java.lang.CharSequence)value$; break;
     case 1: elementType = (java.lang.CharSequence)value$; break;
-    case 2: connections = (java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection>)value$; break;
+    case 2: connections = (java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -157,7 +157,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'connections' field.
    * @return The value of the 'connections' field.
    */
-  public java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> getConnections() {
+  public java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> getConnections() {
     return connections;
   }
 
@@ -166,7 +166,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'connections' field.
    * @param value the value to set.
    */
-  public void setConnections(java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> value) {
+  public void setConnections(java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> value) {
     this.connections = value;
   }
 
@@ -174,8 +174,8 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
    * Creates a new NetworkElement RecordBuilder.
    * @return A new NetworkElement RecordBuilder
    */
-  public static com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder newBuilder() {
-    return new com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder();
+  public static com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder newBuilder() {
+    return new com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder();
   }
 
   /**
@@ -183,11 +183,11 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
    * @param other The existing builder to copy.
    * @return A new NetworkElement RecordBuilder
    */
-  public static com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder newBuilder(com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder other) {
+  public static com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder newBuilder(com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder other) {
     if (other == null) {
-      return new com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder();
+      return new com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder();
     } else {
-      return new com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder(other);
+      return new com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder(other);
     }
   }
 
@@ -196,11 +196,11 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
    * @param other The existing instance to copy.
    * @return A new NetworkElement RecordBuilder
    */
-  public static com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder newBuilder(com.cloud.nativ.networkelements.messages.entities.NetworkElement other) {
+  public static com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder newBuilder(com.cloud.nativ.networkcommon.messages.entities.NetworkElement other) {
     if (other == null) {
-      return new com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder();
+      return new com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder();
     } else {
-      return new com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder(other);
+      return new com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder(other);
     }
   }
 
@@ -213,7 +213,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
 
     private java.lang.CharSequence ipAddress;
     private java.lang.CharSequence elementType;
-    private java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> connections;
+    private java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> connections;
 
     /** Creates a new Builder */
     private Builder() {
@@ -224,7 +224,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder other) {
+    private Builder(com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.ipAddress)) {
         this.ipAddress = data().deepCopy(fields()[0].schema(), other.ipAddress);
@@ -244,7 +244,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
      * Creates a Builder by copying an existing NetworkElement instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.cloud.nativ.networkelements.messages.entities.NetworkElement other) {
+    private Builder(com.cloud.nativ.networkcommon.messages.entities.NetworkElement other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.ipAddress)) {
         this.ipAddress = data().deepCopy(fields()[0].schema(), other.ipAddress);
@@ -274,7 +274,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'ipAddress'.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder setIpAddress(java.lang.CharSequence value) {
+    public com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder setIpAddress(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.ipAddress = value;
       fieldSetFlags()[0] = true;
@@ -294,7 +294,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'ipAddress' field.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder clearIpAddress() {
+    public com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder clearIpAddress() {
       ipAddress = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -314,7 +314,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'elementType'.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder setElementType(java.lang.CharSequence value) {
+    public com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder setElementType(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.elementType = value;
       fieldSetFlags()[1] = true;
@@ -334,7 +334,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'elementType' field.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder clearElementType() {
+    public com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder clearElementType() {
       elementType = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -344,7 +344,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'connections' field.
       * @return The value.
       */
-    public java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> getConnections() {
+    public java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> getConnections() {
       return connections;
     }
 
@@ -354,7 +354,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'connections'.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder setConnections(java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> value) {
+    public com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder setConnections(java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> value) {
       validate(fields()[2], value);
       this.connections = value;
       fieldSetFlags()[2] = true;
@@ -374,7 +374,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'connections' field.
       * @return This builder.
       */
-    public com.cloud.nativ.networkelements.messages.entities.NetworkElement.Builder clearConnections() {
+    public com.cloud.nativ.networkcommon.messages.entities.NetworkElement.Builder clearConnections() {
       connections = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -387,7 +387,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
         NetworkElement record = new NetworkElement();
         record.ipAddress = fieldSetFlags()[0] ? this.ipAddress : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.elementType = fieldSetFlags()[1] ? this.elementType : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.connections = fieldSetFlags()[2] ? this.connections : (java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection>) defaultValue(fields()[2]);
+        record.connections = fieldSetFlags()[2] ? this.connections : (java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection>) defaultValue(fields()[2]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -428,7 +428,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
     out.writeArrayStart();
     out.setItemCount(size0);
     long actualSize0 = 0;
-    for (com.cloud.nativ.networkelements.messages.entities.Connection e0: this.connections) {
+    for (com.cloud.nativ.networkcommon.messages.entities.Connection e0: this.connections) {
       actualSize0++;
       out.startItem();
       e0.customEncode(out);
@@ -449,17 +449,17 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
       this.elementType = in.readString(this.elementType instanceof Utf8 ? (Utf8)this.elementType : null);
 
       long size0 = in.readArrayStart();
-      java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> a0 = this.connections;
+      java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> a0 = this.connections;
       if (a0 == null) {
-        a0 = new SpecificData.Array<com.cloud.nativ.networkelements.messages.entities.Connection>((int)size0, SCHEMA$.getField("connections").schema());
+        a0 = new SpecificData.Array<com.cloud.nativ.networkcommon.messages.entities.Connection>((int)size0, SCHEMA$.getField("connections").schema());
         this.connections = a0;
       } else a0.clear();
-      SpecificData.Array<com.cloud.nativ.networkelements.messages.entities.Connection> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.cloud.nativ.networkelements.messages.entities.Connection>)a0 : null);
+      SpecificData.Array<com.cloud.nativ.networkcommon.messages.entities.Connection> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.cloud.nativ.networkcommon.messages.entities.Connection>)a0 : null);
       for ( ; 0 < size0; size0 = in.arrayNext()) {
         for ( ; size0 != 0; size0--) {
-          com.cloud.nativ.networkelements.messages.entities.Connection e0 = (ga0 != null ? ga0.peek() : null);
+          com.cloud.nativ.networkcommon.messages.entities.Connection e0 = (ga0 != null ? ga0.peek() : null);
           if (e0 == null) {
-            e0 = new com.cloud.nativ.networkelements.messages.entities.Connection();
+            e0 = new com.cloud.nativ.networkcommon.messages.entities.Connection();
           }
           e0.customDecode(in);
           a0.add(e0);
@@ -479,17 +479,17 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
 
         case 2:
           long size0 = in.readArrayStart();
-          java.util.List<com.cloud.nativ.networkelements.messages.entities.Connection> a0 = this.connections;
+          java.util.List<com.cloud.nativ.networkcommon.messages.entities.Connection> a0 = this.connections;
           if (a0 == null) {
-            a0 = new SpecificData.Array<com.cloud.nativ.networkelements.messages.entities.Connection>((int)size0, SCHEMA$.getField("connections").schema());
+            a0 = new SpecificData.Array<com.cloud.nativ.networkcommon.messages.entities.Connection>((int)size0, SCHEMA$.getField("connections").schema());
             this.connections = a0;
           } else a0.clear();
-          SpecificData.Array<com.cloud.nativ.networkelements.messages.entities.Connection> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.cloud.nativ.networkelements.messages.entities.Connection>)a0 : null);
+          SpecificData.Array<com.cloud.nativ.networkcommon.messages.entities.Connection> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.cloud.nativ.networkcommon.messages.entities.Connection>)a0 : null);
           for ( ; 0 < size0; size0 = in.arrayNext()) {
             for ( ; size0 != 0; size0--) {
-              com.cloud.nativ.networkelements.messages.entities.Connection e0 = (ga0 != null ? ga0.peek() : null);
+              com.cloud.nativ.networkcommon.messages.entities.Connection e0 = (ga0 != null ? ga0.peek() : null);
               if (e0 == null) {
-                e0 = new com.cloud.nativ.networkelements.messages.entities.Connection();
+                e0 = new com.cloud.nativ.networkcommon.messages.entities.Connection();
               }
               e0.customDecode(in);
               a0.add(e0);
