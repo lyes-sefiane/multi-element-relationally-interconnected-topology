@@ -1,8 +1,8 @@
 package com.cloud.nativ.networkelements.service;
 
-import com.cloud.nativ.networkcommon.messages.Message;
-import com.cloud.nativ.networkcommon.messages.entities.NetworkElement;
+import com.cloud.nativ.networkcommon.messages.enums.Status;
 import com.cloud.nativ.networkelements.converter.IModelMapper;
+import com.cloud.nativ.networkelements.converter.KafkaMessageConverter;
 import com.cloud.nativ.networkelements.domain.entities.Connection;
 import com.cloud.nativ.networkelements.domain.entities.Neighbor;
 import com.cloud.nativ.networkelements.domain.entities.NetworkDevice;
@@ -12,6 +12,7 @@ import com.cloud.nativ.networkelements.exception.NetworkDeviceNotFoundException;
 import com.cloud.nativ.networkelements.kafka.KafkaProducer;
 import com.cloud.nativ.networkelements.repository.INeighborRepository;
 import com.cloud.nativ.networkelements.repository.INetworkDeviceRepository;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -21,8 +22,6 @@ import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -42,14 +41,17 @@ public class NetworkDeviceService implements IService<NetworkDeviceDto> {
 
     private final IModelMapper<NetworkDeviceDto, NetworkDevice> modelMapper;
 
-    @Autowired
-    private KafkaProducer kafkaProducer;
+    private final KafkaProducer kafkaProducer;
+
+    private final KafkaMessageConverter kafkaMessageConverter;
 
     @Autowired
-    public NetworkDeviceService(INetworkDeviceRepository networkDeviceRepository, INeighborRepository neighborRepository, IModelMapper<NetworkDeviceDto, NetworkDevice> modelMapper) {
+    public NetworkDeviceService(INetworkDeviceRepository networkDeviceRepository, INeighborRepository neighborRepository, IModelMapper<NetworkDeviceDto, NetworkDevice> modelMapper, KafkaProducer kafkaProducer, KafkaMessageConverter kafkaMessageConverter) {
         this.networkDeviceRepository = networkDeviceRepository;
         this.neighborRepository = neighborRepository;
         this.modelMapper = modelMapper;
+        this.kafkaProducer = kafkaProducer;
+        this.kafkaMessageConverter = kafkaMessageConverter;
     }
 
     /**
@@ -88,30 +90,23 @@ public class NetworkDeviceService implements IService<NetworkDeviceDto> {
             evict = @CacheEvict(cacheNames = "networkDevices", allEntries = true))
     @Override
     public NetworkDeviceDto save(NetworkDeviceDto networkDeviceDto) {
-
-        //// @TODO : To Be Removed
-        kafkaProducer.sendMessage(Message.newBuilder()//
-                .setDate(LocalDate.now())//
-                .setNetworkElement(NetworkElement.newBuilder()//
-                        .setIpAddress("10.133.192.168")//
-                        .setElementType("Switch")//
-                        .setConnections(Arrays.asList(com.cloud.nativ.networkcommon.messages.entities.Connection.newBuilder()//
-                                .setIpAddress("10.133.192.169")//
-                                .setCost(3)//
-                                .build()))//
-                        .build())//
-                .build());
-        networkDeviceRepository.findById(networkDeviceDto.getAddress()).ifPresent(x -> {
-            throw new NetworkDeviceAlreadyExistsException(x);
+        networkDeviceRepository.findById(networkDeviceDto.getAddress())//
+                .ifPresent(networkDevice -> {
+                    throw new NetworkDeviceAlreadyExistsException(networkDevice);
         });
-        ////
 
         NetworkDevice networkDevice = modelMapper.toEntity(networkDeviceDto);
         Set<Neighbor> neighbors = getNeighbors(networkDevice);
         Neighbor neighborFromNetworkDeviceSelf = new Neighbor(networkDevice.getIpAddress());
         neighbors.add(neighborFromNetworkDeviceSelf);
         neighborRepository.saveAll(neighbors);
-        return modelMapper.toDto(networkDeviceRepository.save(networkDevice));
+        NetworkDevice savedNetworkDevice = networkDeviceRepository.save(networkDevice);
+
+        if (savedNetworkDevice != null) {
+            kafkaProducer.sendMessage(kafkaMessageConverter.convert(Pair.of(savedNetworkDevice, Status.NEW)));
+        }
+
+        return modelMapper.toDto(savedNetworkDevice);
     }
 
     /**
@@ -130,6 +125,9 @@ public class NetworkDeviceService implements IService<NetworkDeviceDto> {
         BeanUtils.copyProperties(receivedNetworkDevice, existingNetworkDevice);
         Set<Neighbor> neighbors = getNeighbors(receivedNetworkDevice);
         neighborRepository.saveAll(neighbors);
+        if (existingNetworkDevice != null) {
+            kafkaProducer.sendMessage(kafkaMessageConverter.convert(Pair.of(existingNetworkDevice, Status.UPDATE)));
+        }
         return modelMapper.toDto(networkDeviceRepository.save(existingNetworkDevice));
     }
 
@@ -144,8 +142,12 @@ public class NetworkDeviceService implements IService<NetworkDeviceDto> {
     })
     @Override
     public void delete(String id) {
-        networkDeviceRepository.delete(networkDeviceRepository.findById(id).orElseThrow(NetworkDeviceNotFoundException::new));
+        NetworkDevice networkDeviceToDelete = networkDeviceRepository.findById(id).orElseThrow(NetworkDeviceNotFoundException::new);
+        networkDeviceRepository.delete(networkDeviceToDelete);
         neighborRepository.findById(id).ifPresent(neighborRepository::delete);
+        if(networkDeviceToDelete != null) {
+            kafkaProducer.sendMessage(kafkaMessageConverter.convert(Pair.of(networkDeviceToDelete, Status.DELETE)));
+        }
     }
 
     /**

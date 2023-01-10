@@ -45,6 +45,9 @@
         "type": [ "null", {
           "type": "int",
           "logicalType": "date"}]
+      },{
+        "name": "Status",
+        "type": "string"
       },
       {
         "name": "networkElement",
