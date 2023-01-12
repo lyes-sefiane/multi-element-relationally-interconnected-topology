@@ -7,6 +7,7 @@ services:
     expose:
       - ${NETWORK_GRAPH_PORT}
     depends_on:
+      - mongodb
       - consul-server
       - redis-node-5
       - kafka1
@@ -15,8 +16,17 @@ services:
       - schema-registry
     environment:
       LISTEN_AUTO_START: ${LISTEN_AUTO_START}
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: ${SPRING_KAFKA_BOOTSTRAP_SERVERS}
       SPRING_KAFKA_CONSUMER_GROUP_ID: ${SPRING_KAFKA_CONSUMER_GROUP_ID}
+      SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET: ${SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET}
+      SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER: ${SPRING_KAFKA_CONSUMER_KEY_DESERIALIZER}
+      SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER: ${SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER}
+      SPRING_KAFKA_CONSUMER_PROPERTIES_SCHEMA_REGISTRY_URL: ${SPRING_KAFKA_CONSUMER_PROPERTIES_SCHEMA_REGISTRY_URL}
       SPRING_KAFKA_CONSUMER_PROPERTIES_SPECIFIC_AVRO_READER: ${SPRING_KAFKA_CONSUMER_PROPERTIES_SPECIFIC_AVRO_READER}
+      SPRING_DATA_MONGODB_HOST: ${SPRING_DATA_MONGODB_HOST}
+      SPRING_DATA_MONGODB_PORT: ${SPRING_DATA_MONGODB_PORT}
+      SPRING_DATA_MONGODB_DATABASE: ${SPRING_DATA_MONGODB_DATABASE}
+      SPRING_DATA_MONGODB_URI: ${SPRING_DATA_MONGODB_URI}
     networks:
       - network-graph
       - network-elements
@@ -24,6 +34,42 @@ services:
       - kafka
       - schema-registry
       - redis
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    expose:
+      - ${MONGDB_PORT}
+    volumes:
+      - ../mongodb:/docker-entrypoint-initdb.d
+      - mongodb-data:/data/db
+    networks:
+      - network-graph
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: unless-stopped
+    ports:
+      - ${MONGO_EXPRESS_PORT}:${MONGO_EXPRESS_PORT}
+    depends_on:
+      - mongodb
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${ME_CONFIG_MONGODB_ADMINUSERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${ME_CONFIG_MONGODB_ADMINPASSWORD}
+      ME_CONFIG_MONGODB_URL: ${ME_CONFIG_MONGODB_URL}
+      ME_CONFIG_BASICAUTH_USERNAME: ${ME_CONFIG_BASICAUTH_USERNAME}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${ME_CONFIG_BASICAUTH_PASSWORD}
+    networks:
+      - network-graph
+
+volumes:
+  mongodb-data:
 
 networks:
   network-graph:
