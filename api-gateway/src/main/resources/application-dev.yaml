@@ -18,3 +18,8 @@ spring:
           predicates:
             - Path=/api/**
             - Method=GET,POST,PUT,DELETE
+        - id: network-graph
+          uri: lb://network-graph
+          predicates:
+            - Path=/api/**
+            - Method=GET
