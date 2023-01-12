@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
  * @created : 2023-01-10 12:41 p.m.
  */
 public enum Status {
-    NEW("Create"), //
-    UPDATE("Update"),//
-    DELETE("Delete"),//
-    UNKNOWN("Unknown");
+    NEW("NEW"), //
+    UPDATE("UPDATE"),//
+    DELETE("DELETE"),//
+    UNKNOWN("UNKNOWN");
 
     private static final Map<String, Status> mapOfEnumsByValue = Arrays.stream(Status.values()).collect(Collectors.toMap(entry -> entry.value, entry -> entry));
 
