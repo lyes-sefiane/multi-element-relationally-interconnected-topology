@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+
+# =================================
+# /!\  Menu Selection Sample   /!\
+# =================================
+
+
+echo "
+████████╗██╗  ██╗███████╗    ███╗   ███╗   ███████╗   ██████╗    ██╗████████╗
+╚══██╔══╝██║  ██║██╔════╝    ████╗ ████║   ██╔════╝   ██╔══██╗   ██║╚══██╔══╝
+   ██║   ███████║█████╗      ██╔████╔██║   █████╗     ██████╔╝   ██║   ██║   
+   ██║   ██╔══██║██╔══╝      ██║╚██╔╝██║   ██╔══╝     ██╔══██╗   ██║   ██║   
+   ██║   ██║  ██║███████╗    ██║ ╚═╝ ██║██╗███████╗██╗██║  ██║██╗██║██╗██║   
+   ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝╚═╝╚═╝╚═╝"
+   
+declare -a options=(
+	"Docker Compose Up"
+	"Docker Compose Down"
+	"quit"
+)
+
+echo
+
+echo $(uname) ": Hi 😊 ! please make a selection."
+
+echo
+
+select option in "${options[@]}"
+
+do
+
+  case ${option} in
+
+    # Choice : 1
+    "Docker Compose Up")
+          echo "Docker Compose Up ...";
+          docker-compose -f docker-compose/redis-cluster.yml -f docker-compose/schema-registry.yml -f docker-compose/kafka-cluster.yml -f docker-compose/consul-datacenter.yml -f docker-compose/api-gateway.yml -f docker-compose/network-elements.yml -f docker-compose/network-graph.yml --env-file docker-compose/.env up -d
+          break;;
+    # Choice : 2
+    "Docker Compose Down")
+          echo "Docker Compose Down ...";
+          docker-compose -f docker-compose/redis-cluster.yml -f docker-compose/schema-registry.yml -f docker-compose/kafka-cluster.yml -f docker-compose/consul-datacenter.yml -f docker-compose/api-gateway.yml -f docker-compose/network-elements.yml -f docker-compose/network-graph.yml --env-file docker-compose/.env down
+          break;;
+    # Choice : 3
+    quit)
+          echo $(uname) ": Bye !" ;
+          break;;
+
+    # Choice : Default
+    *)
+          echo $(uname) ": I'm not sure what that is O.Ô !"
+  esac
+
+done
