@@ -39,7 +39,7 @@ public class KafkaConsumer {
                 break;
             case UPDATE:
                 logger.info("> Received Message : {}", message);
-                nodeService.updateNode(nodeConverter.convert(message));
+                nodeService.updateNode(nodeConverter.convert(message), message.getNetworkElement().getIpAddress().toString());
                 break;
             case DELETE:
                 logger.info("> Received Message : {}", message);
