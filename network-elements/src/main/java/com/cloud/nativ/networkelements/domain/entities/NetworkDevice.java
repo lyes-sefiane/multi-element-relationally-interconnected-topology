@@ -39,6 +39,9 @@ public class NetworkDevice implements Serializable {
     @Convert(converter = ElementTypeConverter.class)
     private ElementType elementType;
 
+    @Column(name = "area")
+    private int area;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "networkDevice", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private Set<Connection> connections = new HashSet<>();
@@ -66,6 +69,7 @@ public class NetworkDevice implements Serializable {
         return "NetworkDevice{" +
                 "ipAddress='" + ipAddress + '\'' +
                 ", elementType=" + elementType +
+                ", area=" + area +
                 ", connections=" + connections +
                 '}';
     }

@@ -31,5 +31,7 @@ public class NetworkDeviceDto implements Serializable {
     @ElementTypeValidator
     private String elementType;
 
+    private int area;
+
     private Set<NeighborDto> neighbors = new HashSet<>();
 }
