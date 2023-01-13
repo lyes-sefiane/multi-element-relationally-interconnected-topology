@@ -23,6 +23,7 @@ public class NodeConverter implements Converter<Message, Node> {
     @Override
     public Node convert(Message message) {
         return new Node(message.getNetworkElement().getIpAddress().toString(),//
+                message.getNetworkElement().getArea(),
                 message.getNetworkElement().getElementType().toString(),//
                 message.getNetworkElement()//
                         .getConnections()//

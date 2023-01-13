@@ -17,12 +17,15 @@ public class Node {
     private String id;
     private String ipAddress;
 
+    private int area;
+
     private String elementType;
 
     private Set<Edge> edges = new HashSet<>();
 
-    public Node(String ipAddress, String elementType, Set<Edge> edges) {
+    public Node(String ipAddress, int area, String elementType, Set<Edge> edges) {
         this.ipAddress = ipAddress;
+        this.area = area;
         this.elementType = elementType;
         this.edges = edges;
     }
@@ -41,6 +44,14 @@ public class Node {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
     }
 
     public String getElementType() {
@@ -62,7 +73,9 @@ public class Node {
     @Override
     public String toString() {
         return "Node{" +
-                "ipAddress='" + ipAddress + '\'' +
+                "id='" + id + '\'' +
+                ", ipAddress='" + ipAddress + '\'' +
+                ", area=" + area +
                 ", elementType='" + elementType + '\'' +
                 ", edges=" + edges +
                 '}';
