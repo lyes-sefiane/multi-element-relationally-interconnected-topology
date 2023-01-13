@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS network_device
 (ipaddress varchar(255) NOT NULL,
+ area INTEGER NOT NULL,
  element_type varchar(255) NOT NULL,
  CONSTRAINT network_device_PK PRIMARY KEY(ipaddress));
 
