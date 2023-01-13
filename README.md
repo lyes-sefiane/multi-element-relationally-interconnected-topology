@@ -7,15 +7,7 @@
 
 # MIT License
 
-[Copyright (c) 2022 Lyes Sefiane.](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
-
-# The M.E.R.I.T Infrastructure
-
-(in progress ....🤩 and if you're lost, just follow the sound .... ah-wee, ah-wee, oh ... We go, we go, we go)
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT.PNG" width="100%">
-</p>
+[Copyright (c) 2023 Lyes Sefiane.](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
 
 # GitHub Badges
 
@@ -23,6 +15,11 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/lyes-s/multi-element-relationally-interconnected-topology?style=social)
 [![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
 
+# The M.E.R.I.T Infrastructure
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT-v2.PNG" width="100%">
+</p>
 
 # Wiki
 
@@ -38,8 +35,32 @@
 ```
 
 # Git Clone
+```java
+git clone https://github.com/lyes-s/multi-element-relationally-interconnected-topology.git
 ```
-https://github.com/lyes-s/multi-element-relationally-interconnected-topology.git
+
+# M.E.R.I.T : The Script
+```java
+mitsuke ( ◥◣_◢◤ ) : ~$ cd multi-element-relationally-interconnected-topology/
+
+mitsuke ( ◥◣_◢◤ ) : ~$ chmod +x the-merit-script
+
+mitsuke ( ◥◣_◢◤ ) : ~$ ./the-merit-script
+        
+
+        ████████╗██╗  ██╗███████╗    ███╗   ███╗   ███████╗   ██████╗    ██╗████████╗
+        ╚══██╔══╝██║  ██║██╔════╝    ████╗ ████║   ██╔════╝   ██╔══██╗   ██║╚══██╔══╝
+           ██║   ███████║█████╗      ██╔████╔██║   █████╗     ██████╔╝   ██║   ██║
+           ██║   ██╔══██║██╔══╝      ██║╚██╔╝██║   ██╔══╝     ██╔══██╗   ██║   ██║
+           ██║   ██║  ██║███████╗    ██║ ╚═╝ ██║██╗███████╗██╗██║  ██║██╗██║██╗██║
+           ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝╚═╝╚═╝╚═╝
+
+        mitsuke ( ◥◣_◢◤ ) : Hi 😊 ! please make a selection.
+
+        1) Docker Compose Up
+        2) Docker Compose Down
+        3) quit
+        #?
 ```
 
 # Contributing
