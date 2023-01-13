@@ -1,4 +1,4 @@
-package com.cloud.nativ.networkelements.exception;
+package com.cloud.nativ.networkcommon.exception;
 
 import com.cloud.nativ.networkelements.domain.entities.NetworkDevice;
 

@@ -1,6 +1,6 @@
-package com.cloud.nativ.networkelements.exception;
+package com.cloud.nativ.networkcommon.exception;
 
-import com.cloud.nativ.networkelements.exception.entities.ExceptionResponse;
+import com.cloud.nativ.networkcommon.exception.entities.ExceptionResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

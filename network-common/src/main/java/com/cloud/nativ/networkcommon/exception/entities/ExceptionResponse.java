@@ -1,4 +1,4 @@
-package com.cloud.nativ.networkelements.exception.entities;
+package com.cloud.nativ.networkcommon.exception.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,4 +1,4 @@
-package com.cloud.nativ.networkelements.exception;
+package com.cloud.nativ.networkcommon.exception;
 
 /**
  * @author : Lyes Sefiane
