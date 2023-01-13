@@ -1,7 +1,7 @@
 package com.cloud.nativ.networkelements.controller;
 
 import com.cloud.nativ.networkelements.dto.entities.NetworkDeviceDto;
-import com.cloud.nativ.networkelements.exception.entities.ExceptionResponse;
+import com.cloud.nativ.networkcommon.exception.entities.ExceptionResponse;
 import com.cloud.nativ.networkelements.service.IService;
 import com.cloud.nativ.networkelements.utils.Defines;
 import io.swagger.v3.oas.annotations.Operation;
