@@ -14,10 +14,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Message extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 3818385604238055133L;
+  private static final long serialVersionUID = 1440873379316797605L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Message\",\"namespace\":\"com.cloud.nativ.networkcommon.messages\",\"fields\":[{\"name\":\"date\",\"type\":[\"null\",{\"type\":\"int\",\"logicalType\":\"date\"}]},{\"name\":\"Status\",\"type\":\"string\"},{\"name\":\"networkElement\",\"type\":{\"type\":\"record\",\"name\":\"NetworkElement\",\"namespace\":\"com.cloud.nativ.networkcommon.messages.entities\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"elementType\",\"type\":\"string\"},{\"name\":\"connections\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Connection\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"cost\",\"type\":\"int\"}]}}}]}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Message\",\"namespace\":\"com.cloud.nativ.networkcommon.messages\",\"fields\":[{\"name\":\"date\",\"type\":[\"null\",{\"type\":\"int\",\"logicalType\":\"date\"}]},{\"name\":\"Status\",\"type\":\"string\"},{\"name\":\"networkElement\",\"type\":{\"type\":\"record\",\"name\":\"NetworkElement\",\"namespace\":\"com.cloud.nativ.networkcommon.messages.entities\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"area\",\"type\":\"int\"},{\"name\":\"elementType\",\"type\":\"string\"},{\"name\":\"connections\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Connection\",\"fields\":[{\"name\":\"ipAddress\",\"type\":\"string\"},{\"name\":\"cost\",\"type\":\"int\"}]}}}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
