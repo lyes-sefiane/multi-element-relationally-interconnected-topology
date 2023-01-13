@@ -2,7 +2,10 @@ package com.cloud.nativ.networkgraph.repository;
 
 import com.cloud.nativ.networkgraph.domain.entities.Node;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 /**
  * @author : Lyes Sefiane
@@ -11,5 +14,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface INodeRepository extends MongoRepository<Node, String> {
+
+    @Query(value = "{ipAddress : ?0}")
+    Optional<Node> findBy(String ipAddress);
 
 }
