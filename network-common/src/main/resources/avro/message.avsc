@@ -24,6 +24,10 @@
         "type": "string"
       },
       {
+        "name": "area",
+        "type": "int"
+      },
+      {
         "name": "elementType",
         "type": "string"
       },
