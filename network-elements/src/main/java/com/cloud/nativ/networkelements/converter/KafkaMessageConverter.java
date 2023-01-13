@@ -35,6 +35,7 @@ public class KafkaMessageConverter implements Converter<Pair<NetworkDevice, Stat
 
         Function<NetworkDevice, NetworkElement> networkElementFunction = (device) -> NetworkElement.newBuilder()//
                 .setIpAddress(device.getIpAddress())//
+                .setArea(device.getArea())//
                 .setElementType(device.getElementType().getValue())//
                 .setConnections(connectionFunction.apply(device))//
                 .build();
