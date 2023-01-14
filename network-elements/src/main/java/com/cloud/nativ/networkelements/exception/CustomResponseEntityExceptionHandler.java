@@ -1,6 +1,8 @@
-package com.cloud.nativ.networkcommon.exception;
+package com.cloud.nativ.networkelements.exception;
 
-import com.cloud.nativ.networkcommon.exception.entities.ExceptionResponse;
+import com.cloud.nativ.networkelements.exception.NetworkDeviceAlreadyExistsException;
+import com.cloud.nativ.networkelements.exception.NetworkDeviceNotFoundException;
+import com.cloud.nativ.networkelements.exception.entities.ExceptionResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

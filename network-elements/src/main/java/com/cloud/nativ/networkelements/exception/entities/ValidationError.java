@@ -1,4 +1,4 @@
-package com.cloud.nativ.networkcommon.exception.entities;
+package com.cloud.nativ.networkelements.exception.entities;
 
 import lombok.*;
 
