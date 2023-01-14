@@ -1,6 +1,5 @@
 package com.cloud.nativ.networkgraph.service;
 
-import com.cloud.nativ.networkcommon.exception.entities.NodeNotFoundException;
 import com.cloud.nativ.networkgraph.domain.entities.Node;
 import com.cloud.nativ.networkgraph.repository.INodeRepository;
 import org.springframework.beans.BeanUtils;
@@ -25,13 +24,13 @@ public class NodeService {
     }
 
     public Node updateNode(Node node, String ipAddress) {
-        Node existingNode = nodeRepository.findBy(ipAddress).orElseThrow(NodeNotFoundException::new);
+        Node existingNode = nodeRepository.findBy(ipAddress).orElseThrow(RuntimeException::new);
         BeanUtils.copyProperties(node, existingNode);
         return nodeRepository.save(existingNode);
     }
 
     public void deleteNode(Node node) {
-        Node existingNode = nodeRepository.findBy(node.getIpAddress()).orElseThrow(NodeNotFoundException::new);
+        Node existingNode = nodeRepository.findBy(node.getIpAddress()).orElseThrow(RuntimeException::new);
         nodeRepository.delete(existingNode);
     }
 }
