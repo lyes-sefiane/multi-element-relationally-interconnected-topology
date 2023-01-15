@@ -30,6 +30,8 @@ services:
       FLYWAY_URL: ${POSTGRES_URL}
     depends_on:
       - network-elements-db
+    volumes:
+      - ../flyway/sql_versions:/flyway/sql
     networks:
       - network-elements
 
