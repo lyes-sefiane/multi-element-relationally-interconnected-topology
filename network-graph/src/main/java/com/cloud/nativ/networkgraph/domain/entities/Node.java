@@ -3,6 +3,7 @@ package com.cloud.nativ.networkgraph.domain.entities;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
  * @created : 2023-01-10 1:47 p.m.
  */
 @Document
-public class Node {
+public class Node implements Serializable {
     @Id
     private String id;
     private String ipAddress;

@@ -1,11 +1,13 @@
 package com.cloud.nativ.networkgraph.domain.entities;
 
+import java.io.Serializable;
+
 /**
  * @author : Lyes Sefiane
  * @mailto : lyes.sefiane@gmail.com
  * @created : 2023-01-10 1:47 p.m.
  */
-public class Edge {
+public class Edge implements Serializable {
 
     private String ipAddress;
 

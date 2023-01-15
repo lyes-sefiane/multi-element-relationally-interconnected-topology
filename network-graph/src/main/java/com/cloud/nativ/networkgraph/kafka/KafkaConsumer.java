@@ -4,10 +4,9 @@ package com.cloud.nativ.networkgraph.kafka;
 import com.cloud.nativ.networkcommon.messages.Message;
 import com.cloud.nativ.networkcommon.messages.enums.Status;
 import com.cloud.nativ.networkgraph.domain.entities.Node;
-import com.cloud.nativ.networkgraph.service.NodeService;
+import com.cloud.nativ.networkgraph.service.node.INodeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -21,10 +20,10 @@ import org.springframework.stereotype.Component;
 public class KafkaConsumer {
     private static final Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
 
-    private final NodeService nodeService;
+    private final INodeService nodeService;
 
     private final Converter<Message, Node> nodeConverter;
-    public KafkaConsumer(NodeService nodeService, Converter<Message, Node> nodeConverter){
+    public KafkaConsumer(INodeService nodeService, Converter<Message, Node> nodeConverter){
         this.nodeService = nodeService;
         this.nodeConverter = nodeConverter;
     }
