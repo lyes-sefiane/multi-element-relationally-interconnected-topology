@@ -1,14 +1,12 @@
-package com.cloud.nativ.networkgraph.service;
+package com.cloud.nativ.networkgraph.service.graph;
 
 import com.cloud.nativ.networkgraph.domain.Graph;
 import com.cloud.nativ.networkgraph.domain.entities.Node;
 import com.cloud.nativ.networkgraph.graph.IGraphAlgorithm;
-import com.cloud.nativ.networkgraph.repository.INodeRepository;
+import com.cloud.nativ.networkgraph.service.node.INodeService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,27 +15,23 @@ import java.util.List;
  * @created : 2023-01-10 10:21 p.m.
  */
 @Service
-public class GraphService {
+public class GraphService implements IGraphService {
 
-    private final INodeRepository nodeRepository;
+    private final INodeService nodeService;
 
     private final IGraphAlgorithm graphAlgorithm;
 
-    public GraphService(INodeRepository nodeRepository, IGraphAlgorithm graphAlgorithm) {
-        this.nodeRepository = nodeRepository;
+    public GraphService(INodeService nodeService, IGraphAlgorithm graphAlgorithm) {
+        this.nodeService = nodeService;
         this.graphAlgorithm = graphAlgorithm;
     }
 
+    @Override
     public Graph findByArea(int area) {
-        List<Node> nodes = findBy(area);
-        if(CollectionUtils.isEmpty(nodes)){
+        List<Node> nodes = nodeService.findBy(area);
+        if(CollectionUtils.isEmpty(nodes)) {
             return new Graph();
         }
         return graphAlgorithm.build(nodes);
-    }
-
-    // @TODO : Redis Cache
-    private List<Node> findBy(int area) {
-        return nodeRepository.findBy(area);
     }
 }

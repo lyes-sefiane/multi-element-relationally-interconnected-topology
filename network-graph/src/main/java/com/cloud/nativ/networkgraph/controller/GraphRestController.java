@@ -1,14 +1,12 @@
 package com.cloud.nativ.networkgraph.controller;
 
 import com.cloud.nativ.networkgraph.domain.Graph;
-import com.cloud.nativ.networkgraph.service.GraphService;
+import com.cloud.nativ.networkgraph.service.graph.IGraphService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.constraints.Pattern;
 
 /**
  * @author : Lyes Sefiane
@@ -20,9 +18,9 @@ import javax.validation.constraints.Pattern;
 @CrossOrigin(origins = "http://localhost")
 public class GraphRestController {
 
-    private final GraphService graphService;
+    private final IGraphService graphService;
 
-    public GraphRestController(GraphService graphService){
+    public GraphRestController(IGraphService graphService){
         this.graphService = graphService;
     }
 
