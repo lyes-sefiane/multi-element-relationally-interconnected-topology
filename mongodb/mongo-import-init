@@ -1,0 +1,1 @@
+mongoimport --db network --collection node --drop --file /docker-entrypoint-initdb.d/nodes.json --jsonArray

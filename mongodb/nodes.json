@@ -1,0 +1,103 @@
+[
+  {
+    "id": "63c377c084b5805a7e708389",
+    "ipAddress": "10.133.13.12",
+    "area": 0,
+    "elementType": "router",
+    "edges": [
+      {
+        "ipAddress": "10.133.13.14",
+        "cost": 3
+      },
+      {
+        "ipAddress": "10.133.13.13",
+        "cost": 2
+      },
+      {
+        "ipAddress": "10.133.13.15",
+        "cost": 1
+      }
+    ]
+  },
+  {
+    "id": "63c377cc84b5805a7e70838a",
+    "ipAddress": "10.133.13.13",
+    "area": 0,
+    "elementType": "server",
+    "edges": []
+  },
+  {
+    "id": "63c377d684b5805a7e70838b",
+    "ipAddress": "10.133.13.14",
+    "area": 0,
+    "elementType": "wireless router",
+    "edges": [
+      {
+        "ipAddress": "10.133.13.16",
+        "cost": 5
+      }
+    ]
+  },
+  {
+    "id": "63c377e184b5805a7e70838c",
+    "ipAddress": "10.133.13.15",
+    "area": 0,
+    "elementType": "switch",
+    "edges": [
+      {
+        "ipAddress": "10.133.13.17",
+        "cost": 4
+      },
+      {
+        "ipAddress": "10.133.13.18",
+        "cost": 4
+      },
+      {
+        "ipAddress": "10.133.13.19",
+        "cost": 4
+      }
+    ]
+  },
+  {
+    "id": "63c377f484b5805a7e70838d",
+    "ipAddress": "10.133.13.16",
+    "area": 0,
+    "elementType": "laptop",
+    "edges": []
+  },
+  {
+    "id": "63c377fd84b5805a7e70838e",
+    "ipAddress": "10.133.13.17",
+    "area": 0,
+    "elementType": "desktop computer",
+    "edges": [
+      {
+        "ipAddress": "10.133.13.19",
+        "cost": 0
+      },
+      {
+        "ipAddress": "10.133.13.18",
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "id": "63c3780784b5805a7e70838f",
+    "ipAddress": "10.133.13.18",
+    "area": 0,
+    "elementType": "desktop computer",
+    "edges": [
+      {
+        "ipAddress": "10.133.13.19",
+        "cost": 0
+      }
+    ]
+  },
+  {
+    "id": "63c3780e84b5805a7e708390",
+    "ipAddress": "10.133.13.19",
+    "area": 0,
+    "elementType": "desktop computer",
+    "edges": []
+  }
+]
