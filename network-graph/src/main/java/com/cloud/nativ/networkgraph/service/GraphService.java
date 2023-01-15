@@ -2,8 +2,11 @@ package com.cloud.nativ.networkgraph.service;
 
 import com.cloud.nativ.networkgraph.domain.Graph;
 import com.cloud.nativ.networkgraph.domain.entities.Node;
+import com.cloud.nativ.networkgraph.graph.IGraphAlgorithm;
 import com.cloud.nativ.networkgraph.repository.INodeRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -17,21 +20,20 @@ public class GraphService {
 
     private final INodeRepository nodeRepository;
 
-    public GraphService(INodeRepository nodeRepository) {
+    private final IGraphAlgorithm graphAlgorithm;
+
+    public GraphService(INodeRepository nodeRepository, IGraphAlgorithm graphAlgorithm) {
         this.nodeRepository = nodeRepository;
-    }
-    public Graph buildGraph() {
-        List<Node> nodes = findAllNodes();
-        return buildGraph(nodes);
+        this.graphAlgorithm = graphAlgorithm;
     }
 
-    private Graph buildGraph(List<Node> nodes) {
-        // @TODO
-        return null;
+    public Graph buildGraph(int area) {
+        List<Node> nodes = findBy(area);
+        return graphAlgorithm.build(nodes);
     }
 
-    // Cache <-
-    private List<Node> findAllNodes() {
-        return nodeRepository.findAll();
+    // @TODO : Redis Cache
+    private List<Node> findBy(int area) {
+        return nodeRepository.findBy(area);
     }
 }
