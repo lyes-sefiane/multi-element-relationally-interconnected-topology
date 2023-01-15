@@ -34,7 +34,7 @@ public class GraphRestController {
      * @return graph
      */
     @RequestMapping("/{area}")
-    public Graph buildGraph(@PathVariable int area){
-        return graphService.buildGraph(area);
+    public Graph findBy(@PathVariable int area){
+        return graphService.findByArea(area);
     }
 }

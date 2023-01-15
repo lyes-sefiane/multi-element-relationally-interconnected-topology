@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -27,8 +28,11 @@ public class GraphService {
         this.graphAlgorithm = graphAlgorithm;
     }
 
-    public Graph buildGraph(int area) {
+    public Graph findByArea(int area) {
         List<Node> nodes = findBy(area);
+        if(CollectionUtils.isEmpty(nodes)){
+            return new Graph();
+        }
         return graphAlgorithm.build(nodes);
     }
 
