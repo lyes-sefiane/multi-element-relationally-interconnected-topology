@@ -1,7 +1,7 @@
 package com.cloud.nativ.networkgraph.domain;
 
-import com.cloud.nativ.networkgraph.domain.entities.Edge;
-import com.cloud.nativ.networkgraph.domain.entities.Node;
+import com.cloud.nativ.networkgraph.domain.entities.GraphEdge;
+import com.cloud.nativ.networkgraph.domain.entities.GraphNode;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,31 +13,31 @@ import java.util.Set;
  */
 public class Graph {
 
-    private Set<Node> nodes = new HashSet<>();
-    private Set<Edge> edges = new HashSet<>();
+    private Set<GraphNode> nodes = new HashSet<>();
+    private Set<GraphEdge> edges = new HashSet<>();
 
     public Graph() {
         //
     }
 
-    public Graph(Set<Node> nodes, Set<Edge> edges){
+    public Graph(Set<GraphNode> nodes, Set<GraphEdge> neighbors){
         this.nodes = nodes;
-        this.edges = edges;
+        this.edges = neighbors;
     }
 
-    public Set<Node> getNodes() {
+    public Set<GraphNode> getNodes() {
         return nodes;
     }
 
-    public void setNodes(Set<Node> nodes) {
+    public void setNodes(Set<GraphNode> nodes) {
         this.nodes = nodes;
     }
 
-    public Set<Edge> getEdges() {
+    public Set<GraphEdge> getEdges() {
         return edges;
     }
 
-    public void setEdges(Set<Edge> edges) {
+    public void setEdges(Set<GraphEdge> neighbors) {
         this.edges = edges;
     }
 

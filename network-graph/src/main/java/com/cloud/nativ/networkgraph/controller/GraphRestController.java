@@ -4,8 +4,11 @@ import com.cloud.nativ.networkgraph.domain.Graph;
 import com.cloud.nativ.networkgraph.service.GraphService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.constraints.Pattern;
 
 /**
  * @author : Lyes Sefiane
@@ -23,8 +26,15 @@ public class GraphRestController {
         this.graphService = graphService;
     }
 
-    @RequestMapping("/")
-    public Graph buildGraph(){
-        return graphService.buildGraph();
+    /**
+     * Return a graph of nodes in a specific area (example : area 0 or the backbone)
+     *
+     * @param area
+     *
+     * @return graph
+     */
+    @RequestMapping("/{area}")
+    public Graph buildGraph(@PathVariable int area){
+        return graphService.buildGraph(area);
     }
 }
