@@ -15,15 +15,18 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/lyes-s/multi-element-relationally-interconnected-topology?style=social)
 [![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
 
-# The M.E.R.I.T Infrastructure
+# Architecture
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT-v2.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT-v3.PNG" width="100%">
 </p>
 
-# Wiki
+# OpenAPI/Swagger
 
-* Todo
+> Network Elements : https://app.swaggerhub.com/apis-docs/lye-s/network-elements/1.0
+
+> Network Graph : https://app.swaggerhub.com/apis-docs/lye-s/network-graph/1.0
+
 
 # Requirements
 ```
