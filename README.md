@@ -64,13 +64,13 @@ mitsuke ( ◥◣_◢◤ ) : ~$ ./the-merit-script
         1) Docker Compose Up
         2) Docker Compose Down
         3) quit
-        #?
+        #? 1
         Docker Compose Up ...
-        Creating network "docker-compose_redis" with the default driver
         Creating network "docker-compose_network-elements" with the default driver
-        Creating network "docker-compose_consul" with the default driver
-        Creating network "docker-compose_network-graph" with the default driver
+        Creating network "docker-compose_redis" with the default driver
         Creating network "docker-compose_kafka" with the default driver
+        Creating network "docker-compose_network-graph" with the default driver
+        Creating network "docker-compose_consul" with the default driver
         Creating network "docker-compose_schema-registry" with the default driver
         Creating network "docker-compose_gateway" with the default driver
         Creating volume "docker-compose_redis-cluster_data-0" with default driver
@@ -81,19 +81,27 @@ mitsuke ( ◥◣_◢◤ ) : ~$ ./the-merit-script
         Creating volume "docker-compose_redis-cluster_data-5" with default driver
         Creating volume "docker-compose_pgdata" with default driver
         Creating volume "docker-compose_mongodb-data" with default driver
-        Creating redis-node-1        ... done
-        Creating zookeeper           ... done
         Creating redis-node-3        ... done
-        Creating consul-server       ... done
-        Creating redis-node-2        ... done
         Creating mongodb             ... done
+        Creating redis-node-1        ... done
+        Creating consul-server       ... done
         Creating redis-node-0        ... done
         Creating network-elements-db ... done
         Creating redis-node-4        ... done
-        Creating kafka2              ... done
+        Creating zookeeper           ... done
+        Creating redis-node-2        ... done
         Creating kafka1              ... done
         Creating kafka3              ... done
+        Creating kafka2              ... done
         Creating mongo-express       ... done
+        Creating consul-client       ... done
+        Creating flyway              ... done
+        Creating schema-registry     ... done
+        Creating kafdrop             ... done
+        Creating redis-node-5        ... done
+        Creating network-elements    ... done
+        Creating network-graph       ... done
+        Creating api-gateway         ... done
 ```
 
 # Test
