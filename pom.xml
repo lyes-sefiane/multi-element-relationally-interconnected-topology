@@ -17,6 +17,7 @@
 		<module>api-gateway</module>
 		<module>network-elements</module>
 		<module>network-graph</module>
+		<module>network-ui</module>
 	</modules>
 
 </project>
