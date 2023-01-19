@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <title>Home</title>
+</head>
+
+<body>
+
+<div layout:fragment="content">
+    <div class="jumbotron main-content">
+        <h1 class="display-2 text-center">M.E.R.I.T</h1>
+        <p class="text-center">Multi-Element Relationally Interconnected Topology</p>
+        <!-- Toggle button -->
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+                class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+    </div>
+
+    <img class="image" th:src="@{/images/network.png}">
+
+</div>
+
+</body>
+</html>
