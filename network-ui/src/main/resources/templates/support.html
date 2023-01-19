@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}" lang="en">
+<head>
+<title>Support</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="jumbotron main-content">
+			<h1 class="display-2 text-center">Support</h1>
+			<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+		</div>
+		<div class="container h-100">
+
+			<div class="row h-100 justify-content-center align-items-center">
+
+				<div class="col-10 col-md-8 col-lg-6">
+
+					<form class="col card p-3 my-5" th:action="@{/support}" th:object="${supportDetails}" method="post">
+
+						<div class="card-header text-center">Contact us</div>
+
+						<div class="form-group">
+							<label for="fullName">Full Name</label>
+							<input type="text" class="form-control" id="fullName" placeholder="Enter Full Name" name="fullName" th:field="*{fullName}" required>
+							<ul class="error" th:if="${#fields.hasErrors('fullName')}">
+								<li th:each="err : ${#fields.errors('fullName')}" th:text="${err}" />
+							</ul>
+						</div>
+
+						<div class="form-group">
+							<label for="emailAddress">Email Address</label>
+							<input type="text" class="form-control" id="emailAddress" placeholder="Enter Email Address" name="emailAddress" th:field="*{emailAddress}" required>
+							<ul class="error" th:if="${#fields.hasErrors('emailAddress')}">
+								<li th:each="err : ${#fields.errors('emailAddress')}" th:text="${err}" />
+							</ul>
+						</div>
+
+						<div class="form-group">
+							<label for="emailSubject">Email Subject</label>
+							<input type="text" class="form-control" id="emailSubject" placeholder="Enter Email Subject" name="emailSubject" th:field="*{emailSubject}" required>
+							<ul class="error" th:if="${#fields.hasErrors('emailSubject')}">
+								<li th:each="err : ${#fields.errors('emailSubject')}" th:text="${err}" />
+							</ul>
+						</div>
+
+						<div class="form-group">
+							<label for="message">Message</label>
+							<textarea class="form-control" id="message" placeholder="Enter Message" name="message" th:field="*{message}" required></textarea>
+							<ul class="error" th:if="${#fields.hasErrors('message')}">
+								<li th:each="err : ${#fields.errors('message')}" th:text="${err}" />
+							</ul>
+						</div>
+
+						<div>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+
+					</form>
+
+					<div class="alert alert-success" role="alert" th:if="${success}" th:text="${success}"></div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+</html>

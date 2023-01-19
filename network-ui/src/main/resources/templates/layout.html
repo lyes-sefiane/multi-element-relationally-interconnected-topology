@@ -1,0 +1,90 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	  lang="en">
+<head th:fragment="head-fragment">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">></script>
+	<script src="https://d3js.org/d3.v2.min.js?2.9.3"></script>
+<link rel="stylesheet" href="../static/css/site.css" th:href="@{/css/site.css}" />
+<title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">M.E.R.I.T</title>
+</head>
+<body>
+
+<script th:src="@{/js/toggle.js}"></script>
+
+<!-- Vertical navbar -->
+<header>
+<div class="vertical-nav bg-white" id="sidebar">
+	<div class="py-4 px-3 mb-4 bg-light">
+		<div class="media d-flex align-items-center"><img th:src="@{/images/merit.png}" alt="..." class="mr-3 img-thumbnail"></div>
+		<p class="text-center">The Monolith Next-Gen 🕊</p>
+	</div>
+
+	<p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+	<ul class="nav flex-column bg-white mb-0">
+		<li class="nav-item">
+			<a href="#" th:href="@{/index}" class="nav-link text-dark font-italic bg-light">
+				<i class="fa fa-home fa-lg mr-3 text-primary"></i>
+				Home
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="#" class="nav-link text-dark font-italic">
+				<i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+				About
+			</a>
+		</li>
+	</ul>
+
+	<p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Services</p>
+
+	<li class="nav-item">
+		<a href="#" class="nav-link text-dark font-italic">
+			<i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+			Network Elements
+		</a>
+	</li>
+
+	<ul class="nav flex-column bg-white mb-0">
+		<li class="nav-item">
+			<a href="#" class="nav-link text-dark font-italic">
+				<i class="fa fa-link fa-lg mr-3 text-primary"></i>
+				Network Graph
+			</a>
+		</li>
+	</ul>
+
+	<p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Contact</p>
+
+	<ul class="nav flex-column bg-white mb-0">
+		<li class="nav-item">
+			<a href="#" class="nav-link text-dark font-italic">
+				<i class="fa fa-paper-plane mr-3 text-primary fa-fw"></i>
+				Support
+			</a>
+		</li>
+	</ul>
+</div>
+<!-- End vertical navbar -->
+</header>
+
+<main class="page-content" id="content" role="main">
+	<div layout:fragment="content"></div>
+</main>
+
+
+<footer class="footer" id="footer">
+	<div class="container">
+		<p class="text-center text-muted">&copy; 2023 L-YES We Can 👽</p>
+	</div>
+</footer>
+
+</body>
+</html>
