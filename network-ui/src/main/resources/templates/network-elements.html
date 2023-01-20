@@ -7,6 +7,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<script th:src="@{/js/toggle.js}"></script>
 <div layout:fragment="content">
   <div class="jumbotron main-content">
     <h1 class="display-2 text-center">Network Elements</h1>
@@ -16,13 +17,14 @@
     <h3>Network Elements List</h3>
      <!--<a th:href="@{/addnew}" class="btn btn-primary btn-sm mb-3" >Add Employee</a>-->
     <div th:if="${ not#lists.isEmpty(networkElements)}">
-      <table style="width:80%;text-align:center" border="1"  class = "table table-striped table-responsive-md">
-        <thead>
+      <table style="width:80%;text-align:center" class="table table-striped table-hover table-responsive-md">
+        <thead class="thead-dark">
           <tr>
             <th>IP Address</th>
             <th>Element Type</th>
             <th>Area</th>
-            <th>Actions</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -30,10 +32,15 @@
             <td th:text="${networkElement.address}"></td>
             <td th:text="${networkElement.elementType}"></td>
             <td th:text="${networkElement.area}"></td>
-            <td> <a th:href="@{/network-elements/{id}(id=${networkElement.address})}"
-                    class="btn btn-primary">Update</a>
-              <a th:href="@{/network-elements/{id}(id=${networkElement.address})}"
-                 class="btn btn-danger">Delete</a>
+            <td>
+              <a th:href="@{/network-elements/{id}(id=${networkElement.address})}" class="btn btn-warning">
+                <i class="fas fa-user-edit ml-2"></i>
+              </a>
+            </td>
+            <td>
+              <a th:href="@{/network-elements/{id}(id=${networkElement.address})}" class="btn btn-danger">
+                <i class="fas fa-user-times ml-2"></i>
+              </a>
             </td>
           </tr>
         </tbody>
