@@ -107,10 +107,23 @@ mitsuke ( ◥◣_◢◤ ) : ~$ ./the-merit-script
         Creating network-graph       ... done
         Creating api-gateway         ... done
 ```
+# User Interface 
 
-# Test
+## Index 
 
-## Network Element API
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/index.PNG" width="100%">
+</p>
+
+## Network Elements
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/network-elements.PNG" width="100%">
+</p>
+
+# API
+
+## Network Element
 
 ```java
 curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
@@ -260,7 +273,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
 ]
 ```
 
-## Network Graph API
+## Network Graph
 
 ```java
 curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/graphs/0
