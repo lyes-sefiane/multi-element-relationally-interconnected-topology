@@ -5,8 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 /**
  * @author : Lyes Sefiane
@@ -19,15 +18,25 @@ public class NetworkElementsService implements IService {
     private WebClient webClient = WebClient.create("http://localhost:8080");
 
     @Override
-    public List<NetworkElement> getAllNetworkElements() {
+    public Flux<NetworkElement> getAllNetworkElements() {
         return webClient//
                 .get()//
                 .uri("/api/v1/devices")//
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()//
                 .bodyToFlux(NetworkElement.class)
-                .log()
-                .collectList()
+                .log();
+    }
+
+    @Override
+    public Void deleteNetworkElement(String id) {
+       return webClient//
+                .delete()//
+                .uri("/api/v1/devices/{id}", id)//
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)//
+                .retrieve()//
+                .bodyToMono(Void.class)//
+                .log()//
                 .block();
     }
 }

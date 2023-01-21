@@ -1,8 +1,7 @@
 package com.cloud.nativ.networkui.service;
 
 import com.cloud.nativ.networkui.domain.NetworkElement;
-
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 /**
  * @author : Lyes Sefiane
@@ -11,5 +10,7 @@ import java.util.List;
  */
 public interface IService {
 
-    List<NetworkElement> getAllNetworkElements();
+    Flux<NetworkElement> getAllNetworkElements();
+
+    Void deleteNetworkElement(String id);
 }
