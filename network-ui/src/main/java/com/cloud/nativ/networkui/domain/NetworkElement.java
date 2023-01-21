@@ -18,6 +18,16 @@ public class NetworkElement {
 
     private Set<Neighbor> neighbors = new HashSet<>();
 
+    public NetworkElement(){
+        //
+    }
+    public NetworkElement(String address, String elementType, int area, Set<Neighbor> neighbors) {
+        this.address = address;
+        this.elementType = elementType;
+        this.area = area;
+        this.neighbors = neighbors;
+    }
+
     public String getAddress() {
         return address;
     }
