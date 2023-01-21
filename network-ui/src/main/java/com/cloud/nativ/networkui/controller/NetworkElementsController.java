@@ -4,7 +4,9 @@ import com.cloud.nativ.networkui.service.IService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable;
 
 /**
  * @author : Lyes Sefiane
@@ -21,11 +23,19 @@ public class NetworkElementsController {
         this.networkElementsService = networkElementsService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String retrieveNetworkElements(Model model) {
-        model.addAttribute("networkElements", networkElementsService.getAllNetworkElements());
+        model.addAttribute("networkElements",  new ReactiveDataDriverContextVariable(networkElementsService.getAllNetworkElements(), 10));
         return "network-elements";
     }
+
+    @GetMapping("/{id}")
+    public String deleteNetworkElement(Model model, @PathVariable("id") String id ) {
+        networkElementsService.deleteNetworkElement(id);
+        return "redirect:/network-elements/";
+    }
+
+
 
 
 }
