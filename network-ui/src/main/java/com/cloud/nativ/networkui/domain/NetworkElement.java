@@ -59,4 +59,14 @@ public class NetworkElement {
     public void setNeighbors(Set<Neighbor> neighbors) {
         this.neighbors = neighbors;
     }
+
+    @Override
+    public String toString() {
+        return "NetworkElement{" +
+                "address='" + address + '\'' +
+                ", elementType='" + elementType + '\'' +
+                ", area=" + area +
+                ", neighbors=" + neighbors +
+                '}';
+    }
 }
