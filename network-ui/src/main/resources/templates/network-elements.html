@@ -32,12 +32,12 @@
             <td th:text="${networkElement.elementType}"></td>
             <td th:text="${networkElement.area}"></td>
             <td>
-              <a th:href="@{/network-elements/{id}(id=${networkElement.address})}" class="btn btn-warning">
+              <a th:href="@{/network-elements/edit/{id}(id=${networkElement.address})}" class="btn btn-warning">
                 <i class="fas fa-user-edit ml-2"></i>
               </a>
             </td>
             <td>
-                <a th:href="@{/network-elements/{id}(id=${networkElement.address})}" class="btn btn-danger">
+                <a th:href="@{/network-elements/delete/{id}(id=${networkElement.address})}" class="btn btn-danger">
                   <i class="fas fa-user-times ml-2"></i>
                 </a>
             </td>
