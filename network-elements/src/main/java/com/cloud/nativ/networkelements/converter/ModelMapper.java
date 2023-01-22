@@ -1,6 +1,5 @@
 package com.cloud.nativ.networkelements.converter;
 
-import com.cloud.nativ.networkelements.controller.NetworkDeviceController;
 import com.cloud.nativ.networkelements.domain.entities.Connection;
 import com.cloud.nativ.networkelements.domain.entities.Neighbor;
 import com.cloud.nativ.networkelements.domain.entities.NetworkDevice;
@@ -11,9 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 /**
  * @author : Lyes Sefiane
@@ -35,6 +31,7 @@ public class ModelMapper implements IModelMapper<NetworkDeviceDto, NetworkDevice
         NetworkDevice networkDevice = NetworkDevice.builder()//
                 .ipAddress(networkDeviceDto.getAddress())//
                 .elementType(ElementType.getEnumByValue(networkDeviceDto.getElementType()))//
+                .area(networkDeviceDto.getArea())
                 .build();
 
         Set<Connection> connections = networkDeviceDto.getNeighbors()//
@@ -59,6 +56,7 @@ public class ModelMapper implements IModelMapper<NetworkDeviceDto, NetworkDevice
         NetworkDeviceDto networkDeviceDto = NetworkDeviceDto.builder()//
                 .address(networkDevice.getIpAddress())//
                 .elementType(networkDevice.getElementType().getValue())//
+                .area(networkDevice.getArea())
                 .build();
 
         Set<NeighborDto> neighbors = networkDevice.getConnections()//
