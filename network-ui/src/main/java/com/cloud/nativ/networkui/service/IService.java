@@ -10,7 +10,11 @@ import reactor.core.publisher.Flux;
  */
 public interface IService {
 
-    Flux<NetworkElement> getAllNetworkElements();
+    Flux<NetworkElement> retrieveAllNetworkElements();
+
+    NetworkElement retrieveNetworkElement(String id);
+
+    NetworkElement updateNetworkElement(NetworkElement networkElement, String id);
 
     Void deleteNetworkElement(String id);
 }
