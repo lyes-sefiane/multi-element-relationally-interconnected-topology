@@ -1,7 +1,11 @@
 package com.cloud.nativ.networkui.domain;
 
-import java.util.HashSet;
-import java.util.Set;
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : Lyes Sefiane
@@ -10,18 +14,22 @@ import java.util.Set;
  */
 public class NetworkElement {
 
+    @NotBlank(message = "address should not be empty.")
     private String address;
 
+    @NotBlank(message = "elementType should not be empty.")
     private String elementType;
 
+    @Range(min = 0l, message = "area should be a positive number.")
     private int area;
 
-    private Set<Neighbor> neighbors = new HashSet<>();
+    @Valid
+    private List<Neighbor> neighbors = new ArrayList<>();
 
     public NetworkElement(){
         //
     }
-    public NetworkElement(String address, String elementType, int area, Set<Neighbor> neighbors) {
+    public NetworkElement(String address, String elementType, int area, List<Neighbor> neighbors) {
         this.address = address;
         this.elementType = elementType;
         this.area = area;
@@ -52,11 +60,11 @@ public class NetworkElement {
         this.area = area;
     }
 
-    public Set<Neighbor> getNeighbors() {
+    public List<Neighbor> getNeighbors() {
         return neighbors;
     }
 
-    public void setNeighbors(Set<Neighbor> neighbors) {
+    public void setNeighbors(List<Neighbor> neighbors) {
         this.neighbors = neighbors;
     }
 
