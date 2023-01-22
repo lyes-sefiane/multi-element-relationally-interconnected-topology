@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="en">
+<head>
+    <title>Edit Network Element</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="jumbotron main-content">
+        <h1 class="display-2 text-center">Network Element</h1>
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
+    </div>
+    <div class="container h-100">
+
+        <div class="row h-100 justify-content-center align-items-center">
+
+            <div class="col-10 col-md-8 col-lg-6">
+
+                <form class="col card p-3 my-5" th:action="@{/network-elements/{id}(id=${networkElement.address})}" th:object="${networkElement}" th:method="POST">
+
+                    <div class="card-header text-center">Edit Network Element</div>
+
+                    <div class="form-group">
+                        <label for="address">IP Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter IP Address" name="address" th:field="*{address}" required readonly>
+                        <ul class="error" th:if="${#fields.hasErrors('address')}">
+                            <li th:each="err : ${#fields.errors('address')}" th:text="${err}" />
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="elementType">Element Type</label>
+                        <input type="text" class="form-control" id="elementType" placeholder="Select Element Type" name="elementType" th:field="*{elementType}" required>
+                        <ul class="error" th:if="${#fields.hasErrors('elementType')}">
+                            <li th:each="err : ${#fields.errors('elementType')}" th:text="${err}" />
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="area">Area</label>
+                        <input type="text" class="form-control" id="area" placeholder="Enter Area" name="area" th:field="*{area}" required>
+                        <ul class="error" th:if="${#fields.hasErrors('area')}">
+                            <li th:each="err : ${#fields.errors('area')}" th:text="${err}" />
+                        </ul>
+                    </div>
+
+
+
+                    <label for="neighbors" th:if="${ not#lists.isEmpty(networkElement.neighbors)}">Neighbors</label>
+                    <div class="container h-100 col card p-3 my-3" th:if="${ not#lists.isEmpty(networkElement.neighbors)}">
+                        <div class="row" id="neighbors" th:each="neighbor,status : ${networkElement.neighbors}">
+                            <div class="col">
+                                <label for="neighbor-address">IP Address</label>
+                                <input type="text" class="form-control" id="neighbor-address" placeholder="Enter IP Address" th:field="*{neighbors[__${status.index}__].address}" readonly />
+                                <ul class="error" th:if="${#fields.hasErrors('neighbors[__${status.index}__].address')}">
+                                    <li th:each="err : ${#fields.errors('neighbors[__${status.index}__].address')}" th:text="${err}" />
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <label for="cost">Cost</label>
+                                <input type="text" class="form-control" id="cost" placeholder="Enter Cost" th:field="*{neighbors[__${status.index}__].cost}" required />
+                                <ul class="error" th:if="${#fields.hasErrors('neighbors[__${status.index}__].cost')}">
+                                    <li th:each="err : ${#fields.errors('neighbors[__${status.index}__].cost')}" th:text="${err}" />
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+                <div class="alert alert-success" role="alert" th:if="${success}" th:text="${success}"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
