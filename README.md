@@ -21,6 +21,30 @@
 <img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT-v3.PNG" width="100%">
 </p>
 
+# User Interface
+
+> URL : http://localhost:4200
+
+## Index
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/index-v2.PNG" width="100%">
+</p>
+
+## Network Elements
+
+### Retrieve All Network Elements
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/network-elements-v2.PNG" width="100%">
+</p>
+
+### Edit a Network Element
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/edit-network-elements-v2.PNG" width="100%">
+</p>
+
 # Wiki
 
 * [M.E.R.I.T : The Multi-Element Relationally Interconnected Topology Wiki !](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/wiki)
@@ -107,19 +131,6 @@ mitsuke ( ◥◣_◢◤ ) : ~$ ./the-merit-script
         Creating network-graph       ... done
         Creating api-gateway         ... done
 ```
-# User Interface 
-
-## Index 
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/index.PNG" width="100%">
-</p>
-
-## Network Elements
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/network-elements.PNG" width="100%">
-</p>
 
 # API
 
