@@ -18,7 +18,7 @@
 # Architecture
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT-v3.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT-v4.PNG" width="100%">
 </p>
 
 # User Interface
