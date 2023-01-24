@@ -1,6 +1,7 @@
 package com.cloud.nativ.networkui.service;
 
 import com.cloud.nativ.networkui.domain.NetworkElement;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -16,13 +17,23 @@ import reactor.core.publisher.Mono;
 @Service
 public class NetworkElementsService implements IService {
 
-    private WebClient webClient = WebClient.create("http://localhost:8080");
+    private final String baseUrl;
+
+    private final String devicesBaseUri;
+
+    private final WebClient webClient;
+
+    public NetworkElementsService(Environment environment) {
+        baseUrl = environment.getProperty("gateway.base.url");
+        devicesBaseUri = environment.getProperty("devices.base.uri");
+        webClient = WebClient.create(baseUrl);
+    }
 
     @Override
     public Flux<NetworkElement> retrieveAllNetworkElements() {
         return webClient//
                 .get()//
-                .uri("/api/v1/devices")//
+                .uri(devicesBaseUri)//
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()//
                 .bodyToFlux(NetworkElement.class)
@@ -33,7 +44,7 @@ public class NetworkElementsService implements IService {
     public NetworkElement retrieveNetworkElement(String id) {
         return webClient
                 .get()
-                .uri("/api/v1/devices/{id}", id)
+                .uri(devicesBaseUri + "/{id}", id)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
                 .bodyToMono(NetworkElement.class)
@@ -45,7 +56,7 @@ public class NetworkElementsService implements IService {
     public NetworkElement updateNetworkElement(NetworkElement networkElement, String id) {
         return webClient
                 .put()
-                .uri("/api/v1/devices/{id}", id)
+                .uri(devicesBaseUri + "/{id}", id)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .body(Mono.just(networkElement), NetworkElement.class)
                 .retrieve()
@@ -58,7 +69,7 @@ public class NetworkElementsService implements IService {
     public Void deleteNetworkElement(String id) {
        return webClient//
                 .delete()//
-                .uri("/api/v1/devices/{id}", id)//
+                .uri(devicesBaseUri + "/{id}", id)//
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)//
                 .retrieve()//
                 .bodyToMono(Void.class)//
