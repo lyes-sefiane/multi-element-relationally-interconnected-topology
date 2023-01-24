@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  network-ui:
+    image: lsefiane/network-ui:latest
+    container_name: network-ui
+    restart: unless-stopped
+    ports:
+      - '4200:8080'
+    depends_on:
+      - api-gateway
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+      GATEWAY_BASE_URL: ${GATEWAY_BASE_URL}
+      DEVICES_BASE_URI: ${DEVICES_BASE_URI}
+    networks:
+      - ui
+      - gateway
+
+networks:
+  ui:
+  gateway:
