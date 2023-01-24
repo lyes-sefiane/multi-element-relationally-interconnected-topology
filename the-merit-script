@@ -35,12 +35,30 @@ do
     # Choice : 1
     "Docker Compose Up")
           echo "Docker Compose Up ...";
-          docker-compose -f docker-compose/redis-cluster.yml -f docker-compose/schema-registry.yml -f docker-compose/kafka-cluster.yml -f docker-compose/consul-datacenter.yml -f docker-compose/api-gateway.yml -f docker-compose/network-elements.yml -f docker-compose/network-graph.yml --env-file docker-compose/.env up -d
+          docker-compose \
+            -f docker-compose/redis-cluster.yml \
+            -f docker-compose/schema-registry.yml \
+            -f docker-compose/kafka-cluster.yml \
+            -f docker-compose/consul-datacenter.yml \
+            -f docker-compose/api-gateway.yml \
+            -f docker-compose/network-elements.yml \
+            -f docker-compose/network-graph.yml \
+            -f docker-compose/user-interface.yml \
+            --env-file docker-compose/.env up -d
           break;;
     # Choice : 2
     "Docker Compose Down")
           echo "Docker Compose Down ...";
-          docker-compose -f docker-compose/redis-cluster.yml -f docker-compose/schema-registry.yml -f docker-compose/kafka-cluster.yml -f docker-compose/consul-datacenter.yml -f docker-compose/api-gateway.yml -f docker-compose/network-elements.yml -f docker-compose/network-graph.yml --env-file docker-compose/.env down
+          docker-compose \
+            -f docker-compose/redis-cluster.yml \
+            -f docker-compose/schema-registry.yml \
+            -f docker-compose/kafka-cluster.yml \
+            -f docker-compose/consul-datacenter.yml \
+            -f docker-compose/api-gateway.yml \
+            -f docker-compose/network-elements.yml \
+            -f docker-compose/network-graph.yml \
+            -f docker-compose/user-interface.yml \
+            --env-file docker-compose/.env down
           break;;
     # Choice : 3
     quit)
