@@ -9,11 +9,11 @@
 echo "
 ████████╗██╗  ██╗███████╗    ███╗   ███╗   ███████╗   ██████╗    ██╗████████╗
 ╚══██╔══╝██║  ██║██╔════╝    ████╗ ████║   ██╔════╝   ██╔══██╗   ██║╚══██╔══╝
-   ██║   ███████║█████╗      ██╔████╔██║   █████╗     ██████╔╝   ██║   ██║   
-   ██║   ██╔══██║██╔══╝      ██║╚██╔╝██║   ██╔══╝     ██╔══██╗   ██║   ██║   
-   ██║   ██║  ██║███████╗    ██║ ╚═╝ ██║██╗███████╗██╗██║  ██║██╗██║██╗██║   
+   ██║   ███████║█████╗      ██╔████╔██║   █████╗     ██████╔╝   ██║   ██║
+   ██║   ██╔══██║██╔══╝      ██║╚██╔╝██║   ██╔══╝     ██╔══██╗   ██║   ██║
+   ██║   ██║  ██║███████╗    ██║ ╚═╝ ██║██╗███████╗██╗██║  ██║██╗██║██╗██║
    ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝     ╚═╝╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝╚═╝╚═╝╚═╝"
-   
+
 declare -a options=(
 	"Docker Compose Up"
 	"Docker Compose Down"
@@ -36,10 +36,10 @@ do
     "Docker Compose Up")
           echo "Docker Compose Up ...";
           docker-compose \
-            -f docker-compose/redis-cluster.yml \
+            -f docker-compose/cache-cluster.yml \
             -f docker-compose/schema-registry.yml \
-            -f docker-compose/kafka-cluster.yml \
-            -f docker-compose/consul-datacenter.yml \
+            -f docker-compose/messaging-cluster.yml \
+            -f docker-compose/service-registry.yml \
             -f docker-compose/api-gateway.yml \
             -f docker-compose/network-elements.yml \
             -f docker-compose/network-graph.yml \
@@ -50,10 +50,10 @@ do
     "Docker Compose Down")
           echo "Docker Compose Down ...";
           docker-compose \
-            -f docker-compose/redis-cluster.yml \
+            -f docker-compose/cache-cluster.yml \
             -f docker-compose/schema-registry.yml \
-            -f docker-compose/kafka-cluster.yml \
-            -f docker-compose/consul-datacenter.yml \
+            -f docker-compose/messaging-cluster.yml \
+            -f docker-compose/service-registry.yml \
             -f docker-compose/api-gateway.yml \
             -f docker-compose/network-elements.yml \
             -f docker-compose/network-graph.yml \
