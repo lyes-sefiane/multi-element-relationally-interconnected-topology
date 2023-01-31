@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
  * @mailto : lyes.sefiane@gmail.com
  * @created : 2023-01-19 6:53 p.m.
  */
-public interface IService {
+public interface INetworkElementService {
 
     Flux<NetworkElement> retrieveAllNetworkElements();
 

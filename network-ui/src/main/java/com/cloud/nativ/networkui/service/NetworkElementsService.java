@@ -1,11 +1,11 @@
 package com.cloud.nativ.networkui.service;
 
 import com.cloud.nativ.networkui.domain.NetworkElement;
+import com.cloud.nativ.networkui.utils.BaseUri;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -15,18 +15,13 @@ import reactor.core.publisher.Mono;
  * @created : 2023-01-19 6:52 p.m.
  */
 @Service
-public class NetworkElementsService implements IService {
-
-    private final String baseUrl;
+public class NetworkElementsService extends AbstractService implements INetworkElementService {
 
     private final String devicesBaseUri;
 
-    private final WebClient webClient;
-
     public NetworkElementsService(Environment environment) {
-        baseUrl = environment.getProperty("gateway.base.url");
-        devicesBaseUri = environment.getProperty("devices.base.uri");
-        webClient = WebClient.create(baseUrl);
+        super(environment);
+        devicesBaseUri = environment.getProperty(BaseUri.DEVICES.getValue());
     }
 
     @Override

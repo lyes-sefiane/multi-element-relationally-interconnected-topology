@@ -1,7 +1,7 @@
 package com.cloud.nativ.networkui.controller;
 
 import com.cloud.nativ.networkui.domain.NetworkElement;
-import com.cloud.nativ.networkui.service.IService;
+import com.cloud.nativ.networkui.service.INetworkElementService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -23,9 +23,9 @@ public class NetworkElementsController {
 
     private static Logger logger = LoggerFactory.getLogger(NetworkElementsController.class);
 
-    private final IService networkElementsService;
+    private final INetworkElementService networkElementsService;
 
-    public NetworkElementsController(IService networkElementsService){
+    public NetworkElementsController(INetworkElementService networkElementsService){
         this.networkElementsService = networkElementsService;
     }
 
