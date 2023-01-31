@@ -1,5 +1,7 @@
 package com.cloud.nativ.networkgraph.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.util.Objects;
 
 /**
@@ -7,9 +9,10 @@ import java.util.Objects;
  * @mailto : lyes.sefiane@gmail.com
  * @created : 2023-01-14 12:29 p.m.
  */
+@JsonPropertyOrder({"id", "area","elementType"})
 public class GraphNode {
 
-    private String ipAddress;
+    private String id;
 
     private int area;
 
@@ -19,18 +22,18 @@ public class GraphNode {
         //
     }
 
-    public GraphNode(String ipAddress, int area, String elementType) {
-        this.ipAddress = ipAddress;
+    public GraphNode(String id, int area, String elementType) {
+        this.id = id;
         this.area = area;
         this.elementType = elementType;
     }
 
-    public String getIpAddress() {
-        return ipAddress;
+    public String getId() {
+        return id;
     }
 
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getArea() {
@@ -54,18 +57,18 @@ public class GraphNode {
         if (this == o) return true;
         if (!(o instanceof GraphNode)) return false;
         GraphNode graphNode = (GraphNode) o;
-        return getIpAddress().equals(graphNode.getIpAddress());
+        return getId().equals(graphNode.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIpAddress());
+        return Objects.hash(getId());
     }
 
     @Override
     public String toString() {
         return "GraphNode{" +
-                "ipAddress='" + ipAddress + '\'' +
+                "id='" + id + '\'' +
                 ", area=" + area +
                 ", elementType='" + elementType + '\'' +
                 '}';

@@ -5,9 +5,9 @@ import com.cloud.nativ.networkgraph.domain.entities.Node;
 import com.cloud.nativ.networkgraph.graph.IGraphAlgorithm;
 import com.cloud.nativ.networkgraph.service.node.INodeService;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author : Lyes Sefiane
@@ -27,11 +27,17 @@ public class GraphService implements IGraphService {
     }
 
     @Override
-    public Graph findByArea(int area) {
-        List<Node> nodes = nodeService.findBy(area);
-        if(CollectionUtils.isEmpty(nodes)) {
-            return new Graph();
-        }
+    public Graph buildByArea(int area) {
+        List<Node> nodes = nodeService.findAll()//
+                .stream()//
+                .filter(node -> node.getArea() == area)//
+                .collect(Collectors.toList());
+        return graphAlgorithm.build(nodes);
+    }
+
+    @Override
+    public Graph buildAll() {
+        List<Node> nodes = nodeService.findAll();
         return graphAlgorithm.build(nodes);
     }
 }

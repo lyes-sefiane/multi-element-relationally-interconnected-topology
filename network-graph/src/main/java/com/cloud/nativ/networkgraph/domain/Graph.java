@@ -2,6 +2,8 @@ package com.cloud.nativ.networkgraph.domain;
 
 import com.cloud.nativ.networkgraph.domain.entities.GraphEdge;
 import com.cloud.nativ.networkgraph.domain.entities.GraphNode;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,18 +13,19 @@ import java.util.Set;
  * @mailto : lyes.sefiane@gmail.com
  * @created : 2023-01-10 1:56 p.m.
  */
+@JsonPropertyOrder({"nodes", "links"})
 public class Graph {
 
     private Set<GraphNode> nodes = new HashSet<>();
-    private Set<GraphEdge> edges = new HashSet<>();
+    private Set<GraphEdge> links = new HashSet<>();
 
     public Graph() {
         //
     }
 
-    public Graph(Set<GraphNode> nodes, Set<GraphEdge> neighbors){
+    public Graph(Set<GraphNode> nodes, Set<GraphEdge> links){
         this.nodes = nodes;
-        this.edges = neighbors;
+        this.links = links;
     }
 
     public Set<GraphNode> getNodes() {
@@ -33,19 +36,19 @@ public class Graph {
         this.nodes = nodes;
     }
 
-    public Set<GraphEdge> getEdges() {
-        return edges;
+    public Set<GraphEdge> getLinks() {
+        return links;
     }
 
-    public void setEdges(Set<GraphEdge> neighbors) {
-        this.edges = edges;
+    public void setLinks(Set<GraphEdge> links) {
+        this.links = links;
     }
 
     @Override
     public String toString() {
         return "Graph{" +
                 "nodes=" + nodes +
-                ", edges=" + edges +
+                ", links=" + links +
                 '}';
     }
 }

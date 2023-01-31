@@ -5,17 +5,16 @@ import com.cloud.nativ.networkgraph.domain.entities.Edge;
 import com.cloud.nativ.networkgraph.domain.entities.GraphEdge;
 import com.cloud.nativ.networkgraph.domain.entities.GraphNode;
 import com.cloud.nativ.networkgraph.domain.entities.Node;
-import org.apache.commons.lang3.tuple.Pair;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * @author : Lyes Sefiane
@@ -24,6 +23,8 @@ import java.util.stream.Collectors;
  */
 @Component
 public class GraphAlgorithm implements IGraphAlgorithm {
+
+    Logger logger = LoggerFactory.getLogger(GraphAlgorithm.class);
 
     private Graph graph;
 
@@ -41,8 +42,8 @@ public class GraphAlgorithm implements IGraphAlgorithm {
         Set<GraphEdge> graphEdges = new HashSet<>();
 
         if(CollectionUtils.isEmpty(nodes)) {
-            // or Create custom exception ?
-            throw new RuntimeException("There is no graph to build. List of nodes is empty.");
+            logger.info("There is no graph to build. List of nodes is empty.");
+            return new Graph();
         }
 
         for(Node node : nodes) {
