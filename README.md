@@ -45,6 +45,13 @@
 <img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/edit-network-elements-v2.PNG" width="100%">
 </p>
 
+## Network Graph
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/network-graph.PNG" width="100%">
+</p>
+
+
 # Wiki
 
 * [M.E.R.I.T : The Multi-Element Relationally Interconnected Topology Wiki !](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/wiki)
@@ -161,7 +168,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
                 "cost": 1
             }
         ],
-        "links": [
+        "edges": [
             {
                 "rel": "self",
                 "href": "http://8e5eace76bac:8080/api/v1/devices/10.133.13.12"
@@ -173,7 +180,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
         "elementType": "server",
         "area": 0,
         "neighbors": [],
-        "links": [
+        "edges": [
             {
                 "rel": "self",
                 "href": "http://8e5eace76bac:8080/api/v1/devices/10.133.13.13"
@@ -190,7 +197,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
                 "cost": 5
             }
         ],
-        "links": [
+        "edges": [
             {
                 "rel": "self",
                 "href": "http://8e5eace76bac:8080/api/v1/devices/10.133.13.14"
@@ -215,7 +222,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
                 "cost": 4
             }
         ],
-        "links": [
+        "edges": [
             {
                 "rel": "self",
                 "href": "http://8e5eace76bac:8080/api/v1/devices/10.133.13.15"
@@ -227,7 +234,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
         "elementType": "laptop",
         "area": 0,
         "neighbors": [],
-        "links": [
+        "edges": [
             {
                 "rel": "self",
                 "href": "http://8e5eace76bac:8080/api/v1/devices/10.133.13.16"
@@ -248,7 +255,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
                 "cost": 0
             }
         ],
-        "links": [
+        "edges": [
             {
                 "rel": "self",
                 "href": "http://8e5eace76bac:8080/api/v1/devices/10.133.13.17"
@@ -265,7 +272,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
                 "cost": 0
             }
         ],
-        "links": [
+        "edges": [
             {
                 "rel": "self",
                 "href": "http://8e5eace76bac:8080/api/v1/devices/10.133.13.18"
@@ -277,7 +284,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
         "elementType": "desktop computer",
         "area": 0,
         "neighbors": [],
-        "links": [
+        "edges": [
             {
                 "rel": "self",
                 "href": "http://8e5eace76bac:8080/api/v1/devices/10.133.13.19"
@@ -290,105 +297,110 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
 ## Network Graph
 
 ```java
-curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/graphs/0
+curl -X POST -H 'Content-Type: application/json' http://localhost:8080/api/graphql -d '{ "query": "{ retrieveGraph { nodes { id area elementType} links { source target cost} } }" }'
 
 {
-    "nodes": [
-        {
-            "ipAddress": "10.133.13.12",
-            "area": 0,
-            "elementType": "router"
-        },
-        {
-            "ipAddress": "10.133.13.13",
-            "area": 0,
-            "elementType": "server"
-        },
-        {
-            "ipAddress": "10.133.13.14",
-            "area": 0,
-            "elementType": "wireless router"
-        },
-        {
-            "ipAddress": "10.133.13.15",
-            "area": 0,
-            "elementType": "switch"
-        },
-        {
-            "ipAddress": "10.133.13.16",
-            "area": 0,
-            "elementType": "laptop"
-        },
-        {
-            "ipAddress": "10.133.13.17",
-            "area": 0,
-            "elementType": "desktop computer"
-        },
-        {
-            "ipAddress": "10.133.13.18",
-            "area": 0,
-            "elementType": "desktop computer"
-        },
-        {
-            "ipAddress": "10.133.13.19",
-            "area": 0,
-            "elementType": "desktop computer"
-        }
-    ],
-    "edges": [
-        {
-            "source": "10.133.13.15",
-            "destination": "10.133.13.17",
-            "cost": 4
-        },
-        {
-            "source": "10.133.13.12",
-            "destination": "10.133.13.14",
-            "cost": 3
-        },
-        {
-            "source": "10.133.13.12",
-            "destination": "10.133.13.13",
-            "cost": 2
-        },
-        {
-            "source": "10.133.13.15",
-            "destination": "10.133.13.18",
-            "cost": 4
-        },
-        {
-            "source": "10.133.13.14",
-            "destination": "10.133.13.16",
-            "cost": 5
-        },
-        {
-            "source": "10.133.13.12",
-            "destination": "10.133.13.15",
-            "cost": 1
-        },
-        {
-            "source": "10.133.13.17",
-            "destination": "10.133.13.19",
-            "cost": 0
-        },
-        {
-            "source": "10.133.13.15",
-            "destination": "10.133.13.19",
-            "cost": 4
-        },
-        {
-            "source": "10.133.13.18",
-            "destination": "10.133.13.19",
-            "cost": 0
-        },
-        {
-            "source": "10.133.13.17",
-            "destination": "10.133.13.18",
-            "cost": 0
-        }
-    ]
+   "data": {
+      "retrieveGraph": {
+          "nodes": [
+            {
+                "id": "10.133.13.12",
+                "area": 0,
+                "elementType": "router"
+            },
+            {
+                "id": "10.133.13.13",
+                "area": 0,
+                "elementType": "server"
+            },
+            {
+                "id": "10.133.13.14",
+                "area": 0,
+                "elementType": "wireless router"
+            },
+            {
+                "id": "10.133.13.15",
+                "area": 0,
+                "elementType": "switch"
+            },
+            {
+                "id": "10.133.13.16",
+                "area": 0,
+                "elementType": "laptop"
+            },
+            {
+                "id": "10.133.13.17",
+                "area": 0,
+                "elementType": "desktop computer"
+            },
+            {
+                "id": "10.133.13.18",
+                "area": 0,
+                "elementType": "desktop computer"
+            },
+            {
+                "id": "10.133.13.19",
+                "area": 0,
+                "elementType": "desktop computer"
+            }
+        ],
+        "links": [
+            {
+                "source": "10.133.13.15",
+                "target": "10.133.13.17",
+                "cost": 4
+            },
+            {
+                "source": "10.133.13.12",
+                "target": "10.133.13.14",
+                "cost": 3
+            },
+            {
+                "source": "10.133.13.12",
+                "target": "10.133.13.13",
+                "cost": 2
+            },
+            {
+                "source": "10.133.13.15",
+                "target": "10.133.13.18",
+                "cost": 4
+            },
+            {
+                "source": "10.133.13.14",
+                "target": "10.133.13.16",
+                "cost": 5
+            },
+            {
+                "source": "10.133.13.12",
+                "target": "10.133.13.15",
+                "cost": 1
+            },
+            {
+                "source": "10.133.13.17",
+                "target": "10.133.13.19",
+                "cost": 0
+            },
+            {
+                "source": "10.133.13.15",
+                "target": "10.133.13.19",
+                "cost": 4
+            },
+            {
+                "source": "10.133.13.17",
+                "target": "10.133.13.18",
+                "cost": 0
+            },
+            {
+                "source": "10.133.13.18",
+                "target": "10.133.13.19",
+                "cost": 0
+            }
+        ]
+      }
+   }
 }
 ```
+
 # Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
