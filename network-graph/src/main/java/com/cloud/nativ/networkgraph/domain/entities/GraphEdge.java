@@ -1,5 +1,7 @@
 package com.cloud.nativ.networkgraph.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.util.Objects;
 
 /**
@@ -7,11 +9,12 @@ import java.util.Objects;
  * @mailto : lyes.sefiane@gmail.com
  * @created : 2023-01-14 12:32 p.m.
  */
+@JsonPropertyOrder({"source", "target","cost"})
 public class GraphEdge {
 
     private String source;
 
-    private String destination;
+    private String target;
 
     private int cost;
 
@@ -19,9 +22,9 @@ public class GraphEdge {
         //
     }
 
-    public GraphEdge(String source, String destination, int cost) {
+    public GraphEdge(String source, String target, int cost) {
         this.source = source;
-        this.destination = destination;
+        this.target = target;
         this.cost = cost;
     }
 
@@ -33,12 +36,12 @@ public class GraphEdge {
         this.source = source;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getTarget() {
+        return target;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setTarget(String target) {
+        this.target = target;
     }
 
     public int getCost() {
@@ -54,20 +57,20 @@ public class GraphEdge {
         if (this == o) return true;
         if (!(o instanceof GraphEdge)) return false;
         GraphEdge graphEdge = (GraphEdge) o;
-        return getCost() == graphEdge.getCost() && getSource().equals(graphEdge.getSource()) && getDestination().equals(graphEdge.getDestination()) ||
-                getCost() == graphEdge.getCost() && getSource().equals(graphEdge.getDestination()) && getDestination().equals(graphEdge.getSource());
+        return getCost() == graphEdge.getCost() && getSource().equals(graphEdge.getSource()) && getTarget().equals(graphEdge.getTarget()) ||
+                getCost() == graphEdge.getCost() && getSource().equals(graphEdge.getTarget()) && getTarget().equals(graphEdge.getSource());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getSource(), getDestination(), getCost());
+        return Objects.hash(getSource(), getTarget(), getCost());
     }
 
     @Override
     public String toString() {
         return "GraphEdge{" +
                 "source='" + source + '\'' +
-                ", destination='" + destination + '\'' +
+                ", target='" + target + '\'' +
                 ", cost=" + cost +
                 '}';
     }

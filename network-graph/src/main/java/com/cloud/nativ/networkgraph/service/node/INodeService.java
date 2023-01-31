@@ -10,7 +10,7 @@ import java.util.List;
  * @created : 2023-01-15 10:38 a.m.
  */
 public interface INodeService {
-    List<Node> findBy(int area);
+    List<Node> findAll();
 
     Node saveNode(Node node);
 

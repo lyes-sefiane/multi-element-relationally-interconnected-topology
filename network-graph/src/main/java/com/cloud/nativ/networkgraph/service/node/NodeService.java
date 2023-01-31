@@ -8,6 +8,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,10 +27,10 @@ public class NodeService implements INodeService {
         this.nodeRepository = nodeRepository;
     }
 
-    @Cacheable(cacheNames = "nodes", key = "#area")
+    @Cacheable(cacheNames = "nodes")
     @Override
-    public List<Node> findBy(int area) {
-        return nodeRepository.findBy(area);
+    public List<Node> findAll() {
+        return nodeRepository.findAll(Sort.by(Sort.Direction.ASC, "ipAddress"));
     }
 
     @Caching(put = @CachePut(cacheNames = "node", key = "#node.id"),

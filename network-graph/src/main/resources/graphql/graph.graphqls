@@ -1,0 +1,26 @@
+schema {
+    query: Query
+}
+
+type Query {
+    retrieveGraphBy (area : Int!) : Graph
+    retrieveGraph : Graph
+}
+
+type Graph {
+    nodes: [GraphNode]
+    links: [GraphEdge]
+}
+
+type GraphNode {
+    id: String!
+    area: Int!
+    elementType: String!
+
+}
+
+type GraphEdge {
+    source: String!
+    target: String!
+    cost: Int!
+}

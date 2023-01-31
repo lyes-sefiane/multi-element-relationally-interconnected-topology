@@ -8,5 +8,7 @@ import com.cloud.nativ.networkgraph.domain.Graph;
  * @created : 2023-01-15 10:38 a.m.
  */
 public interface IGraphService {
-    Graph findByArea(int area);
+    Graph buildByArea(int area);
+
+    Graph buildAll();
 }
