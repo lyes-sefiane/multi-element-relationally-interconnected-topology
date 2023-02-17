@@ -142,7 +142,7 @@ mitsuke ( ◥◣_◢◤ ) : ~$ ./the-merit-script
         Creating network-ui          ... done
 ```
 
-# API
+# REST API
 
 ## Network Element
 
@@ -293,6 +293,7 @@ curl -H 'Content-Type: application/json' http://localhost:8080/api/v1/devices
     }
 ]
 ```
+# GraphQL API
 
 ## Network Graph
 
