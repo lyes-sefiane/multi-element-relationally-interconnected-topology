@@ -64,9 +64,9 @@
 
 # OpenAPI/Swagger
 
-> Network Elements : https://app.swaggerhub.com/apis-docs/lye-s/network-elements/1.0
+> Network Elements : https://app.swaggerhub.com/apis-docs/lyes-sefiane/network-elements/1.0
 
-> Network Graph : https://app.swaggerhub.com/apis-docs/lye-s/network-graph/1.0
+> Network Graph : https://app.swaggerhub.com/apis-docs/lyes-sefiane/network-graph/1.0
 
 
 # Requirements
