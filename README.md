@@ -24,7 +24,7 @@
 # Architecture
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT-v8.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/The-MERIT-v8.PNG" width="100%">
 </p>
 
 # User Interface
@@ -34,7 +34,7 @@
 ## Index
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/index-v2.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/index-v2.PNG" width="100%">
 </p>
 
 ## Network Elements
@@ -42,25 +42,25 @@
 ### Retrieve All Network Elements
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/network-elements-v2.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/network-elements-v2.PNG" width="100%">
 </p>
 
 ### Edit a Network Element
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/edit-network-elements-v2.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/edit-network-elements-v2.PNG" width="100%">
 </p>
 
 ## Network Graph
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/network-graph.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/network-graph.PNG" width="100%">
 </p>
 
 
 # Wiki
 
-* [M.E.R.I.T : The Multi-Element Relationally Interconnected Topology Wiki !](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/wiki)
+* [M.E.R.I.T : The Multi-Element Relationally Interconnected Topology Wiki !](https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology/wiki)
 
 # OpenAPI/Swagger
 
@@ -81,7 +81,7 @@
 # Git Clone
 
 ```java
-git clone https://github.com/lyes-s/multi-element-relationally-interconnected-topology.git
+git clone https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology.git
 ```
 
 # M.E.R.I.T : The Script
