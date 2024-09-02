@@ -17,9 +17,10 @@
 
 # GitHub Badges
 
-![GitHub top language](https://img.shields.io/github/languages/top/lyes-s/multi-element-relationally-interconnected-topology)
-![GitHub Repo stars](https://img.shields.io/github/stars/lyes-s/multi-element-relationally-interconnected-topology?style=social)
-[![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
+![GitHub Repo stars](https://img.shields.io/github/stars/lyes-sefiane/multi-element-relationally-interconnected-topology?style=social)
+![GitHub top language](https://img.shields.io/github/languages/top/lyes-sefiane/multi-element-relationally-interconnected-topology)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/lyes-sefiane/multi-element-relationally-interconnected-topology/main)
+
 
 # Architecture
 
