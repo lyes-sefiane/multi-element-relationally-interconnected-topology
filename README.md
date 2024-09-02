@@ -5,20 +5,27 @@
   Multi-Element Relationally Interconnected Topology</br>
 </h1>
 
-# MIT License
+## License
 
-[Copyright (c) 2023 Lyes Sefiane.](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
+[Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License][cc-by-nc-nd].
+
+[![CC BY-NC-ND 4.0][cc-by-nc-nd-image]][cc-by-nc-nd]
+
+[cc-by-nc-nd]: http://creativecommons.org/licenses/by-nc-nd/4.0/
+[cc-by-nc-nd-image]: https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png
+[cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg
 
 # GitHub Badges
 
-![GitHub top language](https://img.shields.io/github/languages/top/lyes-s/multi-element-relationally-interconnected-topology)
-![GitHub Repo stars](https://img.shields.io/github/stars/lyes-s/multi-element-relationally-interconnected-topology?style=social)
-[![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/blob/main/LICENSE.md)
+![GitHub Repo stars](https://img.shields.io/github/stars/lyes-sefiane/multi-element-relationally-interconnected-topology?style=social)
+![GitHub top language](https://img.shields.io/github/languages/top/lyes-sefiane/multi-element-relationally-interconnected-topology)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/lyes-sefiane/multi-element-relationally-interconnected-topology/main)
+
 
 # Architecture
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/The-MERIT-v8.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/The-MERIT-v8.PNG" width="100%">
 </p>
 
 # User Interface
@@ -28,7 +35,7 @@
 ## Index
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/index-v2.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/index-v2.PNG" width="100%">
 </p>
 
 ## Network Elements
@@ -36,31 +43,31 @@
 ### Retrieve All Network Elements
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/network-elements-v2.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/network-elements-v2.PNG" width="100%">
 </p>
 
 ### Edit a Network Element
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/edit-network-elements-v2.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/edit-network-elements-v2.PNG" width="100%">
 </p>
 
 ## Network Graph
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/network-graph.PNG" width="100%">
+<img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/network-graph.PNG" width="100%">
 </p>
 
 
 # Wiki
 
-* [M.E.R.I.T : The Multi-Element Relationally Interconnected Topology Wiki !](https://github.com/lyes-s/multi-element-relationally-interconnected-topology/wiki)
+* [M.E.R.I.T : The Multi-Element Relationally Interconnected Topology Wiki !](https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology/wiki)
 
 # OpenAPI/Swagger
 
-> Network Elements : https://app.swaggerhub.com/apis-docs/lye-s/network-elements/1.0
+> Network Elements : https://app.swaggerhub.com/apis-docs/lyes-sefiane/network-elements/1.0
 
-> Network Graph : https://app.swaggerhub.com/apis-docs/lye-s/network-graph/1.0
+> Network Graph : https://app.swaggerhub.com/apis-docs/lyes-sefiane/network-graph/1.0
 
 
 # Requirements
@@ -75,7 +82,7 @@
 # Git Clone
 
 ```java
-git clone https://github.com/lyes-s/multi-element-relationally-interconnected-topology.git
+git clone https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology.git
 ```
 
 # M.E.R.I.T : The Script
