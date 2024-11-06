@@ -1,6 +1,0 @@
-*.md
-.git
-.cache
-.idea
-target
-!target/*.jar
