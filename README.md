@@ -1,13 +1,6 @@
-<p align="center">
-<img src="https://raw.githubusercontent.com/wiki/lyes-s/multi-element-relationally-interconnected-topology/images/phoenix.png" width="30%">
-</p>
-<h1 align="center">M.E.R.I.T<br/>
-  Multi-Element Relationally Interconnected Topology</br>
-</h1>
+# Multi-Element Relationally Interconnected Topology</br>
 
-## License
-
-[Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License][cc-by-nc-nd].
+### © 2024 | Lyes Sefiane <img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/grocery-items-management-application/images/algeria-flag-icon.png" width="2%"> <img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/grocery-items-management-application/images/canada-flag-icon.png" width="2%"> All Rights Reserved | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 [![CC BY-NC-ND 4.0][cc-by-nc-nd-image]][cc-by-nc-nd]
 
@@ -17,12 +10,16 @@
 
 # GitHub Badges
 
+![License](https://img.shields.io/static/v1?label=License&message=CC-BY-NC-ND-4.0&color=green)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+[![Dependabot Updates](https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology/actions/workflows/dependabot/dependabot-updates)
+[![CodeQL](https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology/actions/workflows/github-code-scanning/codeql)
+[![Automatic Dependency Submission](https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology/actions/workflows/dependency-graph/auto-submission/badge.svg)](https://github.com/lyes-sefiane/multi-element-relationally-interconnected-topology/actions/workflows/dependency-graph/auto-submission)
 ![GitHub Repo stars](https://img.shields.io/github/stars/lyes-sefiane/multi-element-relationally-interconnected-topology?style=social)
 ![GitHub top language](https://img.shields.io/github/languages/top/lyes-sefiane/multi-element-relationally-interconnected-topology)
-![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/lyes-sefiane/multi-element-relationally-interconnected-topology/main)
 
 
-# Architecture
+# Infrastructure
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/wiki/lyes-sefiane/multi-element-relationally-interconnected-topology/images/The-MERIT-v8.PNG" width="100%">
@@ -72,7 +69,7 @@
 
 # Requirements
 ```
-1. Java 11.x.y
+1. Java 17.x.y
 
 2. Maven 3.x.y
 
