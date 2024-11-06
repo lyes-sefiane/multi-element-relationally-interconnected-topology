@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.7</version>
+		<version>3.3.5</version>
 		<relativePath/>
 	</parent>
 	<groupId>com.cloud.native</groupId>
@@ -14,8 +14,8 @@
 	<name>network-common</name>
 	<description>Network Common</description>
 	<properties>
-		<java.version>11</java.version>
-		<avro.version>1.11.3</avro.version>
+		<java.version>17</java.version>
+		<avro.version>1.11.4</avro.version>
 	</properties>
 	<dependencies>
 		<dependency>
