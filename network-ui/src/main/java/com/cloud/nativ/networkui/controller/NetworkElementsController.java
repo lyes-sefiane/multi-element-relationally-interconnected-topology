@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable;
+import org.thymeleaf.spring6.context.webflux.ReactiveDataDriverContextVariable;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 /**
  * @author : Lyes Sefiane
