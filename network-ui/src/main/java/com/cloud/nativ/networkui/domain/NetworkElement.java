@@ -1,9 +1,9 @@
 package com.cloud.nativ.networkui.domain;
 
+import jakarta.validation.Valid;
 import org.hibernate.validator.constraints.Range;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 

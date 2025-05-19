@@ -1,7 +1,6 @@
 package com.cloud.nativ.networkelements.exception;
 
-import com.cloud.nativ.networkelements.exception.NetworkDeviceAlreadyExistsException;
-import com.cloud.nativ.networkelements.exception.NetworkDeviceNotFoundException;
+
 import com.cloud.nativ.networkelements.exception.entities.ExceptionResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
@@ -17,8 +16,8 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.persistence.EntityNotFoundException;
-import javax.validation.ConstraintViolationException;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.ConstraintViolationException;
 
 /**
  * @author : Lyes Sefiane
@@ -121,7 +120,6 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
      *
      * @return ResponseEntity<Object>
      */
-    @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers, HttpStatus status, WebRequest request) {
 
@@ -149,7 +147,6 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
      *
      * @return ResponseEntity<Object>
      */
-    @Override
     protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex,
                                                                          HttpHeaders headers, HttpStatus status, WebRequest request) {
 
@@ -173,7 +170,6 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
      *
      * @return ResponseEntity<Object>
      */
-    @Override
     public ResponseEntity<Object> handleHttpMediaTypeNotSupported(HttpMediaTypeNotSupportedException ex, //
                                                                   HttpHeaders headers, //
                                                                   HttpStatus status, //
@@ -222,7 +218,6 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
      * @param request
      * @return ResponseEntity<Object>
      */
-    @Override
     public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, //
                                                                HttpHeaders headers, //
                                                                HttpStatus status, //

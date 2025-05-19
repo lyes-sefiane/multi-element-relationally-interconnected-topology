@@ -2,8 +2,8 @@ package com.cloud.nativ.networkelements.domain.enums.validator;
 
 import com.cloud.nativ.networkelements.domain.enums.ElementType;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 /**
  * @author : Lyes Sefiane
