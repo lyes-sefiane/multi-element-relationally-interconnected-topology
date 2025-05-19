@@ -13,7 +13,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.validation.ConstraintViolationException;
+import jakarta.validation.ConstraintViolationException;
 
 /**
  * @author : Lyes Sefiane
@@ -49,7 +49,6 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
      * @param request
      * @return ResponseEntity<Object>
      */
-    @Override
     public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, //
                                                                HttpHeaders headers, //
                                                                HttpStatus status, //
@@ -96,7 +95,6 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
      *
      * @return ResponseEntity<Object>
      */
-    @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers, HttpStatus status, WebRequest request) {
 

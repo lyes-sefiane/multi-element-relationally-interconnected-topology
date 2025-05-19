@@ -23,10 +23,10 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
   private static final SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<NetworkElement> ENCODER =
-      new BinaryMessageEncoder<NetworkElement>(MODEL$, SCHEMA$);
+      new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
 
   private static final BinaryMessageDecoder<NetworkElement> DECODER =
-      new BinaryMessageDecoder<NetworkElement>(MODEL$, SCHEMA$);
+      new BinaryMessageDecoder<>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
@@ -50,7 +50,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
   public static BinaryMessageDecoder<NetworkElement> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<NetworkElement>(MODEL$, SCHEMA$, resolver);
+    return new BinaryMessageDecoder<>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
@@ -99,9 +99,14 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
     this.connections = connections;
   }
 
+  @Override
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
+
+  @Override
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
+
   // Used by DatumWriter.  Applications should not call.
+  @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return ipAddress;
@@ -113,6 +118,7 @@ public class NetworkElement extends org.apache.avro.specific.SpecificRecordBase 
   }
 
   // Used by DatumReader.  Applications should not call.
+  @Override
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {

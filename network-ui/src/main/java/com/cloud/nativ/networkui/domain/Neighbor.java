@@ -2,7 +2,7 @@ package com.cloud.nativ.networkui.domain;
 
 import org.hibernate.validator.constraints.Range;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * @author : Lyes Sefiane

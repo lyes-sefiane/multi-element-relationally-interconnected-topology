@@ -3,9 +3,8 @@ package com.cloud.nativ.networkelements.dto.entities;
 import com.cloud.nativ.networkelements.domain.enums.validator.ElementTypeValidator;
 import com.cloud.nativ.networkelements.utils.Defines;
 import lombok.*;
-import org.springframework.hateoas.RepresentationModel;
 
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
